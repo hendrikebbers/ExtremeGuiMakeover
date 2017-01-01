@@ -83,14 +83,26 @@ public class FeaturesPane extends VBox {
             SlidesEntry entry = slidesEntry.get();
             if (!entry.getSlides().isEmpty()) {
                 showSlidesButton.setVisible(true);
-                showSlidesButton.setOnAction(evt -> SlidesViewer.showSlides(entry));
+                showSlidesButton.setOnAction(evt -> SlidesViewer.showSlides(entry, true));
 
                 toggleSwitch.selectedProperty().addListener(it -> {
                     if (toggleSwitch.isSelected()) {
-                        SlidesViewer.showSlides(entry);
+                        SlidesViewer.showSlides(entry, false);
+                    }
+                });
+            } else {
+                toggleSwitch.selectedProperty().addListener(it -> {
+                    if (toggleSwitch.isSelected()) {
+                        SlidesViewer.showSlides(null, false);
                     }
                 });
             }
+        } else {
+            toggleSwitch.selectedProperty().addListener(it -> {
+                if (toggleSwitch.isSelected()) {
+                    SlidesViewer.showSlides(null, false);
+                }
+            });
         }
     }
 }

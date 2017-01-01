@@ -31,10 +31,14 @@ public class SlidesViewer {
         slidesEntry.addListener(it -> updateViewer());
     }
 
+    public void showSlides() {
+        stage.show();
+    }
+
     private void updateViewer() {
         SlidesEntry entry = getSlidesEntry();
         if (entry == null) {
-            stage.hide();
+            pagination.setVisible(false);
         } else {
 
             stage.setTitle(entry.getTitle());
@@ -50,8 +54,7 @@ public class SlidesViewer {
             });
 
             pagination.setPageCount(entry.getSlides().size());
-
-            stage.show();
+            pagination.setVisible(true);
         }
     }
 
@@ -65,7 +68,10 @@ public class SlidesViewer {
         this.slidesEntry.set(slidesEntry);
     }
 
-    public static void showSlides(SlidesEntry entry) {
+    public static void showSlides(SlidesEntry entry, boolean openWindow) {
         viewer.setSlidesEntry(entry);
+        if (openWindow) {
+            viewer.showSlides();
+        }
     }
 }
