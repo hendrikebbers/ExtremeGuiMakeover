@@ -1,0 +1,130 @@
+.container {
+    -fx-base: rgba(63,76,107,1);
+}
+
+.background {
+    -fx-background-color: linear-gradient(to bottom, rgba(63,76,107,1) 0%, rgba(43,56,87,1) 100%);
+}
+
+.trailer-button {
+    -fx-background-color: rgba(255, 255, 255, .2);
+    -fx-background-radius: 0;
+}
+
+.search-field {
+    -fx-background-radius: 1000;
+    -fx-padding: 5 5 5 5;
+    -fx-text-fill: white;
+}
+
+.search-field .left-pane {
+    -fx-padding: 0 0 0 10;
+}
+
+.movie-toolbar .text-field {
+    -fx-background-color: rgba(255, 255, 255, .2);
+}
+
+.column-header {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-width: 0;
+    -fx-text-fill: black;
+    -fx-font-size: 1.2em;
+}
+
+.filler {
+    -fx-background-color: transparent;
+}
+
+.column-header-background {
+    -fx-background-color: rgba(255, 255, 255, .2);
+    -fx-background-radius: 0;
+    -fx-border-width: 0;
+}
+
+.glyph-icon {
+    -fx-fill: white;
+}
+
+.list-view {
+    -fx-padding: 0;
+    -fx-background-color: rgba(255,255,255,.2);
+    -fx-background-insets: 0;
+    -fx-border-width: 0;
+}
+
+.list-view:focused {
+    -fx-background-color: rgba(255,255,255,.2);
+}
+
+.list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-padding: 10 10 10 10;
+}
+
+.list-cell:selected {
+    -fx-background-color: red;
+    -fx-text-fill: white;
+}
+
+.list-cell .label {
+    -fx-text-fill: white;
+}
+
+.list-cell .grid-pane {
+    -fx-hgap: 10;
+    -fx-vgap: 5;
+}
+
+.list-cell .genre-label,
+.list-cell .trailer-label {
+    -fx-background-radius: 4;
+    -fx-padding: 4 10 4 10;
+}
+
+.list-cell .genre-label {
+    -fx-background-color: seagreen;
+}
+
+.list-cell .trailer-label {
+    -fx-background-color: orange;
+}
+
+.table-view {
+    -fx-background-color: rgba(255,255,255,.2);
+}
+
+.table-view:focused {
+    -fx-background-color: rgba(255,255,255,.2) !important;
+}
+
+.table-cell {
+    -fx-border-width: 0;
+}
+
+.table-cell .text {
+    -fx-fill: white;
+}
+
+.table-row-cell {
+    -fx-border-width: 0;
+    -fx-background-color: transparent;
+}
+
+.table-row-cell:selected {
+    -fx-border-width: 0;
+    -fx-background-color: red;
+}
+
+.synopsis-container {
+    -fx-background-color: rgba(255,255,255,.2);
+    -fx-padding: 10;
+    -fx-border-width: 0;
+}
+
+.table-view:focused {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+}

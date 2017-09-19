@@ -1,0 +1,35 @@
+.root {
+}
+
+.poster-view {
+    -fx-background-color: lightgray;
+    -fx-border-color: gray;
+}
+
+.movie-toolbar {
+}
+
+.container {
+    -fx-padding: 20;
+    -fx-spacing: 10;
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+}
+
+.synopsis-container {
+    -fx-border-color: gray;
+    -fx-padding: 10;
+}
+
+.synopsis-label {
+}
+
+.search-field {
+    -fx-padding: 4 10 10 4;
+    -fx-max-width: 300;
+    -fx-min-width: 300;
+}
+
+.glasspane {
+    -fx-background-color: rgba(255, 255, 255, .7);
+}

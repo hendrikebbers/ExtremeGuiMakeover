@@ -1,0 +1,40 @@
+.options-pane {
+    -fx-background-color: transparent;
+    -fx-spacing: 10;
+    -fx-padding: 10;
+}
+
+.options-pane .text {
+    -fx-font-size: 1em;
+}
+
+.options-pane .toolbar {
+    -fx-spacing: 10;
+}
+
+.toggle-switch {
+    -fx-padding: 5;
+    -fx-font-weight: bold;
+    -fx-padding: 0;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-alignment: center-left;
+}
+
+#all-button {
+    -fx-background-color: red;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+
+#reset-button {
+    -fx-background-color: green;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}

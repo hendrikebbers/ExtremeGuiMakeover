@@ -1,0 +1,19 @@
+@font-face {
+    src: url('GloriaHallelujah.ttf');
+}
+
+@font-face {
+    src: url('fonts/Roboto-Medium.ttf');
+}
+
+.root {
+    -fx-font-family: "Roboto Medium";
+}
+
+.label,
+.text,
+.text-field
+{
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 1.2em;
+}
