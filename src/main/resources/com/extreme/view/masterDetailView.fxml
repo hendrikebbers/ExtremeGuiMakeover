@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:id="rootPane" maxHeight="920.0" minHeight="920.0" prefHeight="920.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="backgroundImageView" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../background/249716-frederika.jpg" />
+         </image>
+      </ImageView>
+      <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="dark-glasspane" />
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+         <children>
+            <StackPane fx:id="detailView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="24.0" StackPane.alignment="CENTER">
+                     <StackPane.margin>
+                        <Insets />
+                     </StackPane.margin>
+                     <children>
+                        <StackPane fx:id="moviePosterWrapper" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="movie-poster-wrapper" HBox.hgrow="NEVER">
+                           <children>
+                              <ImageView fx:id="posterImageView" fitWidth="280.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_LEFT">
+                                 <image>
+                                    <Image url="@../data/hitman.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <VBox maxHeight="1.7976931348623157E308" maxWidth="460.0" minWidth="460.0" prefWidth="460.0">
+                           <children>
+                              <Text fx:id="titleText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="movie-title" text="Star Wars: The Empire Strikes Back" />
+                              <TextFlow maxHeight="-Infinity" minHeight="-Infinity" styleClass="movie-description-flow">
+                                 <children>
+                                    <Text fx:id="descriptionText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="movie-description" text="Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire." />
+                                 </children>
+                                 <padding>
+                                    <Insets top="8.0" />
+                                 </padding>
+                              </TextFlow>
+                              <StackPane maxWidth="1.7976931348623157E308">
+                                 <children>
+                                    <ImageView fitWidth="200.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+                                       <image>
+                                          <Image url="@../../../45stars.png" />
+                                       </image>
+                                       <StackPane.margin>
+                                          <Insets top="12.0" />
+                                       </StackPane.margin>
+                                    </ImageView>
+                                 </children>
+                                 <padding>
+                                    <Insets top="8.0" />
+                                 </padding>
+                              </StackPane>
+                              <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <Button fx:id="watchTrailerButton" alignment="CENTER" mnemonicParsing="false" styleClass="watch-trailer-button" text="Watch trailer" StackPane.alignment="CENTER" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="8.0" />
+                                 </padding>
+                              </StackPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </StackPane>
+            <StackPane VBox.vgrow="NEVER">
+               <children>
+                  <ListView fx:id="movieList" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" orientation="HORIZONTAL" prefHeight="160.0">
+                     <styleClass>
+                        <String fx:value="movie-list" />
+                        <String fx:value="pretty-list-view" />
+                     </styleClass>
+                  </ListView>
+                  <StackPane fx:id="movieListGlasspane" prefHeight="150.0" prefWidth="200.0" styleClass="movie-list-glasspane" />
+               </children>
+            </StackPane>
+         </children>
+      </VBox>
+      <HBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="6.0" StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin>
+         <children>
+            <FontAwesomeIconView id="maximize-app-icon" fx:id="maximizeAppIconView" glyphName="EXPAND" styleClass="window-menu-icon" />
+            <FontAwesomeIconView id="close-app-icon" fx:id="closeAppIconView" glyphName="REMOVE" styleClass="window-menu-icon" />
+         </children>
+         <padding>
+            <Insets bottom="8.0" left="8.0" right="12.0" top="8.0" />
+         </padding>
+      </HBox>
+   </children>
+</StackPane>

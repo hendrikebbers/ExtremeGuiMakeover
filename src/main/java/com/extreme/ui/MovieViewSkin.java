@@ -1,6 +1,5 @@
 package com.extreme.ui;
 
-import com.extreme.ExtremeGUI;
 import com.extreme.MovieApp;
 import com.extreme.data.Database;
 import com.extreme.data.Movie;
@@ -57,7 +56,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import java.awt.Desktop;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
@@ -71,6 +70,8 @@ import java.util.List;
 public class MovieViewSkin extends SkinBase<MovieView> {
 
     private GridPane container = new GridPane();
+
+    private Button showTrailerButton = new Button();
 
     private Database database;
     private MediaView mediaView;
@@ -114,8 +115,6 @@ public class MovieViewSkin extends SkinBase<MovieView> {
         MediaView mediaView = new MediaView(player);
         mediaView.setOpacity(.3);
         getChildren().add(mediaView);
-        GridPane.setRowSpan(mediaView, 3);
-        GridPane.setColumnSpan(mediaView, 2);
         mediaView.visibleProperty().bind(getSkinnable().showMediaViewBackgroundProperty());
         getSkinnable().showMediaViewBackgroundProperty().addListener(it -> {
             if (getSkinnable().isShowMediaViewBackground()) {
@@ -141,13 +140,11 @@ public class MovieViewSkin extends SkinBase<MovieView> {
         textField.textProperty().bindBidirectional(getSkinnable().filterTextProperty());
 
         Text clearIcon = FontAwesomeIconFactory.get().createIcon(FontAwesomeIcon.TIMES_CIRCLE, "18");
-
         CustomTextField customTextField = new CustomTextField();
         customTextField.getStyleClass().add("search-field");
         customTextField.setLeft(FontAwesomeIconFactory.get().createIcon(FontAwesomeIcon.SEARCH, "18px"));
         customTextField.setRight(clearIcon);
         customTextField.textProperty().bindBidirectional(getSkinnable().filterTextProperty());
-
         clearIcon.setOnMouseClicked(evt -> customTextField.setText(""));
 
         FlipPanel searchFlipPanel = new FlipPanel();
@@ -164,7 +161,7 @@ public class MovieViewSkin extends SkinBase<MovieView> {
             }
         });
 
-        Button showTrailerButton = new Button("Show Trailer");
+        showTrailerButton = new Button("Show Trailer");
         showTrailerButton.getStyleClass().add("trailer-button");
         showTrailerButton.setMaxHeight(Double.MAX_VALUE);
         showTrailerButton.setOnAction(evt -> showTrailer());
@@ -414,7 +411,6 @@ public class MovieViewSkin extends SkinBase<MovieView> {
 
                 } else {
                     stopMediaPlayer();
-
                     mediaView.setVisible(false);
                     mediaView.setManaged(false);
                     mediaView.setLayoutY(-mediaView.getFitHeight());
@@ -428,9 +424,7 @@ public class MovieViewSkin extends SkinBase<MovieView> {
     private void stopMediaPlayer() {
         MediaPlayer mediaPlayer = mediaView.getMediaPlayer();
         if (mediaPlayer != null) {
-            if (mediaPlayer.getStatus().equals(Status.PLAYING)) {
                 mediaPlayer.stop();
-            }
         }
     }
 
@@ -495,7 +489,7 @@ public class MovieViewSkin extends SkinBase<MovieView> {
         try {
             JAXBContext ctx = JAXBContext.newInstance(Database.class);
             Unmarshaller unmarshaller = ctx.createUnmarshaller();
-            database = (Database) unmarshaller.unmarshal(ExtremeGUI.class.getResourceAsStream("/movies.xml"));
+            database = (Database) unmarshaller.unmarshal(MovieApp.class.getResourceAsStream("/movies.xml"));
             for (Movie movie : database.getMovies()) {
                 System.out.println("loaded movie: " + movie.getTitle());
             }

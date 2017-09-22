@@ -1,35 +1,113 @@
-.root {
+.movie-title {
+    -fx-font-family: "Futura"; /* "Caviar Dreams" "Champagne & Limousines" */
+    -fx-font-size: 28px;
+
+    -fx-fill: orange;
+
+    -fx-stroke: rgba(255, 255, 255, 0.2);
+    -fx-stroke-width: 0.5px;
 }
 
-.poster-view {
-    -fx-background-color: lightgray;
-    -fx-border-color: gray;
+.movie-description-flow {
+    -fx-text-alignment: justify;
 }
 
-.movie-toolbar {
+.movie-description {
+    -fx-font-weight: normal;
+    -fx-font-family: "Roboto"; /* "Ubuntu" */
+    -fx-font-size: 20px;
+
+    -fx-fill: white;
 }
 
-.container {
-    -fx-padding: 20;
-    -fx-spacing: 10;
-    -fx-hgap: 10;
-    -fx-vgap: 10;
+.watch-trailer-button {
+    -fx-font-family: "Futura"; /* "Ubuntu" */
+    -fx-font-size: 26px;
+
+    -fx-text-fill: orange;
+
+    -fx-background-color: rgba(0, 0, 0, 0.4);
+    -fx-background-radius: 0px;
+
+    -fx-border-color: orange;
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
 }
 
-.synopsis-container {
-    -fx-border-color: gray;
-    -fx-padding: 10;
+.watch-trailer-button:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.6);
+
+    -fx-text-fill: white;
 }
 
-.synopsis-label {
+.dark-glasspane {
+    -fx-background-color: rgba(0,0,0,0.6);
 }
 
-.search-field {
-    -fx-padding: 4 10 10 4;
-    -fx-max-width: 300;
-    -fx-min-width: 300;
+.movie-poster-wrapper {
+    -fx-border-color: rgba(255,255,255,0.1);
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
 }
 
-.glasspane {
-    -fx-background-color: rgba(255, 255, 255, .7);
+.movie-list {
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+    -fx-border-width: 0;
+    -fx-background-color: rgba(0,0,0,0.3);
+
+    -fx-border-color: rgba(255,255,255,0.1);
+    -fx-border-style: solid;
+    -fx-border-width: 1px 0px 0px 0px;
+}
+
+.movie-list-glasspane {
+-fx-background-color: linear-gradient(from 0% 0% to 0% 100%, transparent 65%, black 95%);
+}
+
+.movie-list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+    -fx-border-width: 0;
+}
+
+.movie-list-cell .movie-poster-wrapper {
+    -fx-border-color: rgba(255,255,255,0.2), transparent;
+    -fx-border-style: solid;
+    -fx-border-insets: 3px, 0px;
+    -fx-border-width: 1px, 3px;
+}
+
+.movie-list-cell:selected .movie-poster-wrapper {
+    -fx-border-color: transparent, orange;
+    -fx-border-radius: 2px, 2px;
+    -fx-border-style: solid;
+    -fx-border-width: 1px, 3px;
+}
+
+.window-menu-icon {
+    -fx-fill: ghostwhite;
+    -fx-stroke: rgba(0,0,0,0.4);
+    -fx-stroke-width: 1px;
+    -glyph-size: 22px;
+}
+
+.window-menu-icon:hover {
+    -fx-scale-x: 1.3;
+    -fx-scale-y: 1.3;
+}
+
+#close-app-icon {
+    -fx-fill: orangered;
+}
+
+#maximize-app-icon {
+    -fx-scale-x: 0.7;
+    -fx-scale-y: 0.7;
+}
+
+#maximize-app-icon:hover {
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
 }

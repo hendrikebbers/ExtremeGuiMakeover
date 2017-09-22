@@ -1,5 +1,6 @@
 package com.extreme;
 
+import com.extreme.data.Database;
 import com.extreme.feature.Feature;
 import com.extreme.feature.OptionsDialog;
 import com.extreme.ui.MovieView;
@@ -7,6 +8,7 @@ import javafx.application.Application;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * Created by lemmi on 14.09.17.
@@ -17,18 +19,20 @@ public class MovieApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         MovieView movieView = new MovieView();
 
-        Scene scene = new Scene(movieView);
+        Scene scene = new Scene(ViewFactory.createMasterDetailView(Database.loadDefaultDatabase()));
         scene.setCamera(new PerspectiveCamera());
         scene.getStylesheets().add(MovieApp.class.getResource("/styles.css").toExternalForm());
+        scene.getStylesheets().add(MovieApp.class.getResource("/listview.css").toExternalForm());
 
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setTitle("Movie Database");
         primaryStage.setScene(scene);
-        primaryStage.setWidth(1200);
-        primaryStage.setHeight(750);
+        primaryStage.setWidth(1100);
+        primaryStage.setHeight(720);
         primaryStage.centerOnScreen();
+        primaryStage.fullScreenProperty().addListener(e -> System.out.println(primaryStage.isFullScreen()));
+        primaryStage.setFullScreen(true);
         primaryStage.show();
-
-
         OptionsDialog optionsDialog = new OptionsDialog(primaryStage);
 
         optionsDialog.addFeature(new Feature("CSS", movieView.useCssProperty()));
@@ -46,7 +50,7 @@ public class MovieApp extends Application {
         optionsDialog.addFeature(new Feature("ControlsFX", movieView.useControlsFXProperty()));
         optionsDialog.addFeature(new Feature("Drag & Drop", movieView.enableDragAndDropOfPosterProperty()));
         optionsDialog.addFeature(new Feature("Drag & Drop - Drag Image", movieView.enableDragAndDropOfPosterWithDragImageProperty()));
-        optionsDialog.show();
+        //optionsDialog.show();
     }
 
     public static void main(String[] args) {

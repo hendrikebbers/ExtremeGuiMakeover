@@ -26,41 +26,13 @@ public class MovieView extends Control {
     private final String listViewStylesheet = MovieView.class.getResource("/listview.css").toExternalForm();
 
     public MovieView() {
-        getStyleClass().add("movie-view");
+        getStyleClass().add("movie-com.extreme.view");
 
         useCss.addListener(it -> updateOptionalStylesheet());
         useCustomFonts.addListener(it -> updateFontStylesheet());
         usePrettyListView.addListener(it -> updateListViewStylesheet());
 
         filterText.addListener(it -> filterPredicate.set(movie -> movie.getTitle().toLowerCase().contains(getFilterText().toLowerCase())));
-    }
-
-    public void allOptions() {
-        enable(true);
-    }
-
-    public void resetOptions() {
-        enable(false);
-    }
-
-    private void enable(boolean enabled) {
-        setSelectedTrailer(null);
-
-        setUseCss(enabled);
-        setEnableDragAndDropOfPoster(enabled);
-        setEnableDragAndDropOfPosterWithDragImage(enabled);
-        setEnableEffects(enabled);
-        setEnableParallax(enabled);
-        setEnableSortingAndFiltering(enabled);
-        setMediaViewTrailers(enabled);
-        setAnimateMediaViewTrailers(enabled);
-        setShowMediaViewBackground(enabled);
-        setUseControlsFX(enabled);
-        setUseCustomFonts(enabled);
-        setUseListView(enabled);
-        setUseListViewCellFactory(enabled);
-        setUseClipping(enabled);
-        setUsePrettyListView(enabled);
     }
 
     @Override

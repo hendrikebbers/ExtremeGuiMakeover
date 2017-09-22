@@ -1,13 +1,17 @@
 package com.extreme.data;
 
+import javafx.beans.binding.Binding;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.image.Image;
 
 import javax.xml.bind.annotation.XmlType;
+import java.util.Optional;
 
 @XmlType
 public class Movie {
@@ -166,6 +170,14 @@ public class Movie {
 
     public final String getYouTube() {
         return youTube.get();
+    }
+
+    public final Binding<Image> createPosterImageBinding() {
+        return Bindings.createObjectBinding(() -> {
+            return Optional.ofNullable(getPosterFileName()).
+                    map(s -> new Image(Database.class.getResource(s).toExternalForm())).
+                    orElse(null);
+        }, posterFileNameProperty());
     }
 
     @Override

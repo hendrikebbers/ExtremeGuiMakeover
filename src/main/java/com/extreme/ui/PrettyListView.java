@@ -22,7 +22,7 @@ public class PrettyListView<T> extends ListView<T> {
             getChildren().addAll(vBar, hBar);
         });
  
-        getStyleClass().add("pretty-list-view");
+        getStyleClass().add("pretty-list-com.extreme.view");
  
         vBar.setManaged(false);
         vBar.setOrientation(Orientation.VERTICAL);
