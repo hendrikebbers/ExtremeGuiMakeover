@@ -9,6 +9,7 @@ import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Point3D;
+import javafx.scene.CacheHint;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
@@ -24,6 +25,8 @@ import java.util.ResourceBundle;
 public class MasterDetailViewController implements Initializable {
 
     private final MasterDetailViewModel model;
+
+    private final MasterDetailViewFeatures features;
 
     @FXML
     private ImageView backgroundImageView;
@@ -61,38 +64,78 @@ public class MasterDetailViewController implements Initializable {
     @FXML
     private FontAwesomeIconView closeAppIconView;
 
-    private RotateTransition posterRotationTransition;
-
     private TranslateTransition movieListTransition;
 
     private FadeTransition movieListGlaspaneTransition;
 
-    public MasterDetailViewController(final MasterDetailViewModel model) {
+    public MasterDetailViewController(final MasterDetailViewModel model, final MasterDetailViewFeatures features) {
         this.model = Objects.requireNonNull(model);
+        this.features = Objects.requireNonNull(features);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         movieList.setCellFactory(c -> new MovieListCell());
         movieList.setItems(model.getMovies());
+        movieList.setCacheHint(CacheHint.SPEED);
+
         model.selectedMovieProperty().bind(movieList.getSelectionModel().selectedItemProperty());
         model.selectedMovieProperty().addListener((obs, oldVal, newVal) -> updateDetailArea());
         detailView.visibleProperty().bind(model.selectedMovieProperty().isNotNull());
-        moviePosterWrapper.setRotationAxis(new Point3D(0.0, 1.0, 0.0));
         rootPane.widthProperty().addListener((obs, oldVal, newVal) -> updateBackgroundImageBinding());
         rootPane.heightProperty().addListener((obs, oldVal, newVal) -> updateBackgroundImageBinding());
 
-        movieList.setOnMouseEntered(e -> playMovieListTransition(true));
-        movieList.setOnMouseExited(e -> playMovieListTransition(false));
-        movieList.setTranslateY(100);
-
-        movieListGlasspane.setMouseTransparent(true);
-
-        maximizeAppIconView.setOnMouseClicked(e -> ((Stage)rootPane.getScene().getWindow()).setFullScreen(true));
+        maximizeAppIconView.setOnMouseClicked(e -> ((Stage)rootPane.getScene().getWindow()).setFullScreen(!((Stage)rootPane.getScene().getWindow()).isFullScreen()));
         closeAppIconView.setOnMouseClicked(e -> rootPane.getScene().getWindow().hide());
 
+        moviePosterWrapper.setRotationAxis(new Point3D(0, 1, 0));
+        moviePosterWrapper.setCache(true);
+        moviePosterWrapper.setCacheShape(true);
+        moviePosterWrapper.setCacheHint(CacheHint.SPEED);
+        posterImageView.setCache(true);
+        posterImageView.setCacheHint(CacheHint.SPEED);
+
+        addFeatureSupport();
         updateBackgroundImageBinding();
         updateDetailArea();
+    }
+
+    private void addFeatureSupport() {
+        backgroundImageView.visibleProperty().bind(features.movieBackgroundProperty());
+
+        movieListGlasspane.visibleProperty().bind(features.listShadowProperty());
+        movieList.cacheProperty().bind(features.listCacheProperty());
+        movieList.cacheShapeProperty().bind(features.listCacheProperty());
+
+        features.listAnimationProperty().addListener((obs, oldVal, newVal) -> {
+            if(newVal) {
+                movieList.setTranslateY(100);
+                movieList.setOnMouseEntered(e -> playMovieListTransition(true));
+                movieList.setOnMouseExited(e -> playMovieListTransition(false));
+            } else {
+                movieList.setTranslateY(0);
+                movieList.setOnMouseEntered(null);
+                movieList.setOnMouseExited(null);
+            }
+        });
+
+        maximizeAppIconView.visibleProperty().bind(features.customWindowUIProperty());
+        closeAppIconView.visibleProperty().bind(features.customWindowUIProperty());
+
+        features.posterTransformProperty().addListener((obs, oldVal, newVal) -> {
+            if(newVal) {
+                RotateTransition posterRotationTransition = new RotateTransition(Duration.seconds(1), moviePosterWrapper);
+                posterRotationTransition.setFromAngle(0);
+                posterRotationTransition.setToAngle(-36.0);
+                posterRotationTransition.play();
+            } else {
+                RotateTransition posterRotationTransition = new RotateTransition(Duration.seconds(1), moviePosterWrapper);
+                posterRotationTransition.setFromAngle(-36.0);
+                posterRotationTransition.setToAngle(0.0);
+                posterRotationTransition.play();
+            }
+        });
+
     }
 
     private void playMovieListTransition(boolean show) {
@@ -143,16 +186,7 @@ public class MasterDetailViewController implements Initializable {
             titleText.textProperty().bind(currentMovie.titleProperty());
             descriptionText.textProperty().bind(currentMovie.synopsisProperty());
             posterImageView.imageProperty().bind(currentMovie.createPosterImageBinding());
-
-            if(posterRotationTransition != null) {
-                posterRotationTransition.stop();
-            }
-            moviePosterWrapper.setRotate(-32.0);
-            posterRotationTransition = new RotateTransition(Duration.seconds(1.4), moviePosterWrapper);
-            posterRotationTransition.setDelay(Duration.seconds(1.0));
-            posterRotationTransition.setFromAngle(-32.0);
-            posterRotationTransition.setToAngle(0.0);
-            posterRotationTransition.play();
+            backgroundImageView.imageProperty().bind(currentMovie.createBackgroundImageBinding());
         }
     }
 }

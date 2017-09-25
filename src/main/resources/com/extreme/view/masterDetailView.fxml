@@ -12,7 +12,7 @@
    <children>
       <ImageView fx:id="backgroundImageView" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../background/249716-frederika.jpg" />
+            <Image url="@../data/star-wars-episode3-background.jpg" />
          </image>
       </ImageView>
       <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="dark-glasspane" />
@@ -20,7 +20,7 @@
          <children>
             <StackPane fx:id="detailView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
                <children>
-                  <HBox fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="24.0" StackPane.alignment="CENTER">
+                  <HBox fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="8.0" StackPane.alignment="TOP_CENTER">
                      <StackPane.margin>
                         <Insets />
                      </StackPane.margin>
@@ -69,8 +69,14 @@
                                  </padding>
                               </StackPane>
                            </children>
+                           <padding>
+                              <Insets top="16.0" />
+                           </padding>
                         </VBox>
                      </children>
+                     <padding>
+                        <Insets top="100.0" />
+                     </padding>
                   </HBox>
                </children>
             </StackPane>
@@ -82,12 +88,12 @@
                         <String fx:value="pretty-list-view" />
                      </styleClass>
                   </ListView>
-                  <StackPane fx:id="movieListGlasspane" prefHeight="150.0" prefWidth="200.0" styleClass="movie-list-glasspane" />
+                  <StackPane fx:id="movieListGlasspane" mouseTransparent="true" prefHeight="150.0" prefWidth="200.0" styleClass="movie-list-glasspane" />
                </children>
             </StackPane>
          </children>
       </VBox>
-      <HBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="6.0" StackPane.alignment="TOP_RIGHT">
+      <HBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" spacing="6.0" StackPane.alignment="TOP_RIGHT">
          <StackPane.margin>
             <Insets />
          </StackPane.margin>
@@ -96,7 +102,7 @@
             <FontAwesomeIconView id="close-app-icon" fx:id="closeAppIconView" glyphName="REMOVE" styleClass="window-menu-icon" />
          </children>
          <padding>
-            <Insets bottom="8.0" left="8.0" right="12.0" top="8.0" />
+            <Insets bottom="8.0" left="8.0" right="12.0" top="6.0" />
          </padding>
       </HBox>
    </children>

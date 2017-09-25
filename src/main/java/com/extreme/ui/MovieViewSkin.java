@@ -30,7 +30,6 @@ import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Reflection;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.ClipboardContent;
@@ -225,7 +224,7 @@ public class MovieViewSkin extends SkinBase<MovieView> {
             if (selectedMovie != null) {
                 final String posterFileName = selectedMovie.getPosterFileName();
                 synopsisLabel.setText(getSkinnable().getSelectedMovie().getSynopsis());
-                posterView.setImage(new Image(posterFileName));
+                posterView.setImage(selectedMovie.createPosterImage());
             } else {
                 synopsisLabel.setText("");
                 posterView.setImage(null);

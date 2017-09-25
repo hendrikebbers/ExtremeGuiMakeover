@@ -1,9 +1,12 @@
 package com.extreme.feature;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -71,11 +74,21 @@ public class OptionsPane extends VBox {
 
     public void addFeature(final Feature feature) {
         features.add(feature);
+
+        HBox featureBox = new HBox();
+
         ToggleSwitch toggleButton = new ToggleSwitch();
         toggleButton.textProperty().bindBidirectional(feature.nameProperty());
         toggleButton.selectedProperty().bindBidirectional(feature.activeProperty());
         installDragListener(toggleButton);
         toggleButton.setMaxWidth(Double.MAX_VALUE);
-        getChildren().add(toggleButton);
+
+        ToggleButton slideButton = FontAwesomeIconFactory.get().createIconToggleButton(FontAwesomeIcon.DOWNLOAD);
+
+        featureBox.getChildren().addAll(toggleButton, slideButton);
+
+
+
+        getChildren().add(featureBox);
     }
 }

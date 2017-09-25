@@ -97,6 +97,21 @@ public class Movie {
         return directorImage.get();
     }
 
+    //background
+    private final StringProperty backgroundFileName = new SimpleStringProperty(this, "backgroundFileName");
+
+    public String getBackgroundFileName() {
+        return backgroundFileName.get();
+    }
+
+    public StringProperty backgroundFileNameProperty() {
+        return backgroundFileName;
+    }
+
+    public void setBackgroundFileName(String backgroundFileName) {
+        this.backgroundFileName.set(backgroundFileName);
+    }
+
     // poster
     private final StringProperty posterFileName = new SimpleStringProperty(this, "posterFileName");
 
@@ -172,12 +187,24 @@ public class Movie {
         return youTube.get();
     }
 
+    public final Image createPosterImage() {
+        return new Image(Database.class.getResource(getPosterFileName()).toExternalForm());
+    }
+
     public final Binding<Image> createPosterImageBinding() {
         return Bindings.createObjectBinding(() -> {
             return Optional.ofNullable(getPosterFileName()).
                     map(s -> new Image(Database.class.getResource(s).toExternalForm())).
                     orElse(null);
         }, posterFileNameProperty());
+    }
+
+    public final Binding<Image> createBackgroundImageBinding() {
+        return Bindings.createObjectBinding(() -> {
+            return Optional.ofNullable(getBackgroundFileName()).
+                    map(s -> new Image(Database.class.getResource(s).toExternalForm())).
+                    orElse(null);
+        }, backgroundFileNameProperty());
     }
 
     @Override

@@ -5,6 +5,7 @@
         <directorImage>hughes.jpg</directorImage>
         <genre>ACTION</genre>
         <posterFileName>hitman.jpg</posterFileName>
+        <backgroundFileName>hitman-background.jpg</backgroundFileName>
         <rating>65</rating>
         <synopsis>The world's top bodyguard gets a new client, a hit man who must testify at the International Court of Justice. They must put their differences aside and work together to make it to the trial on time.</synopsis>
         <title>The Hitman's Bodyguard</title>
@@ -18,6 +19,7 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode4.jpg</posterFileName>
         <rating>80</rating>
+        <backgroundFileName>star-wars-episode4-background.jpg</backgroundFileName>
         <synopsis>Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.</synopsis>
         <title>Star Wars</title>
         <trailer>Star Wars Episode IV  A New Hope.mp4</trailer>
@@ -30,6 +32,7 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode5.jpg</posterFileName>
         <rating>82</rating>
+        <backgroundFileName>star-wars-episode5-background.jpg</backgroundFileName>
         <synopsis>The epic saga continues as Luke Skywalker, in hopes of defeating the evil Galactic Empire, learns the ways of the Jedi from aging master Yoda. But Darth Vader is more determined than ever to capture Luke. Meanwhile, rebel leader Princess Leia, cocky Han Solo, Chewbacca, and droids C-3PO and R2-D2 are thrown into various stages of capture, betrayal and despair.</synopsis>
         <title>Star Wars: The Empire Strikes Back</title>
         <trailer>Star Wars Episode V  The Empire Strikes Back.mp4</trailer>
@@ -42,6 +45,7 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode6.jpg</posterFileName>
         <rating>79</rating>
+        <backgroundFileName>star-wars-episode6-background.jpg</backgroundFileName>
         <synopsis>As Rebel leaders map their strategy for an all-out attack on the Emperor's newer, bigger Death Star. Han Solo remains frozen in the cavernous desert fortress of Jabba the Hutt, the most loathsome outlaw in the universe, who is also keeping Princess Leia as a slave girl. Now a master of the Force, Luke Skywalker rescues his friends, but he cannot become a true Jedi Knight until he wages his own crucial battle against Darth Vader, who has sworn to win Luke over to the dark side of the Force.</synopsis>
         <title>Star Wars: Return of the Jedi</title>
         <trailer>Star Wars Episode VI Return Of The Jedi Trailer.mp4</trailer>
@@ -54,6 +58,7 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode1.jpg</posterFileName>
         <rating>63</rating>
+        <backgroundFileName>star-wars-episode1-background.jpg</backgroundFileName>
         <synopsis>Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.</synopsis>
         <title>Star Wars: The Phantom Menace</title>
         <trailer>Star Wars Episode I  The Phantom Menace.mp4</trailer>
@@ -66,6 +71,7 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode2.jpg</posterFileName>
         <rating>64</rating>
+        <backgroundFileName>star-wars-episode2-background.jpg</backgroundFileName>
         <synopsis>Ten years after the invasion of Naboo, the galaxy is on the brink of civil war. Under the leadership of a renegade Jedi named Count Dooku, thousands of solar systems threaten to break away from the Galactic Republic. When an assassination attempt is made on Senator Padmé Amidala, the former Queen of Naboo, twenty-year-old Jedi apprentice Anakin Skywalker is assigned to protect her. In the course of his mission, Anakin discovers his love for Padmé as well as his own darker side. Soon, Anakin, Padmé, and Obi-Wan Kenobi are drawn into the heart of the Separatist movement and the beginning of the Clone Wars.</synopsis>
         <title>Star Wars: Attack of the Clones</title>
         <trailer>Star Wars Episode II  Attack of the Clones.mp4</trailer>
@@ -78,18 +84,21 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode3.jpg</posterFileName>
         <rating>70</rating>
+        <backgroundFileName>star-wars-episode3-background.jpg</backgroundFileName>
         <synopsis>Years after the onset of the Clone Wars, the noble Jedi Knights lead a massive clone army into a galaxy-wide battle against the Separatists. When the sinister Sith unveil a thousand-year-old plot to rule the galaxy, the Republic crumbles and from its ashes rises the evil Galactic Empire. Jedi hero Anakin Skywalker is seduced by the dark side of the Force to become the Emperor's new apprentice – Darth Vader. The Jedi are decimated, as Obi-Wan Kenobi and Jedi Master Yoda are forced into hiding. The only hope for the galaxy are Anakin's own offspring – the twin children born in secrecy who will grow up to become heroes.</synopsis>
         <title>Star Wars: Revenge of the Sith</title>
         <trailer>Star Wars Episode III  Revenge of the Sith.mp4</trailer>
         <youTube>https://youtu.be/5UnjrG_N8hU</youTube>
         <year>2005</year>
     </movie>
+
 
     <movie>
         <director>Patrick Hughes</director>
         <directorImage>hughes.jpg</directorImage>
         <genre>ACTION</genre>
         <posterFileName>hitman.jpg</posterFileName>
+        <backgroundFileName>hitman-background.jpg</backgroundFileName>
         <rating>65</rating>
         <synopsis>The world's top bodyguard gets a new client, a hit man who must testify at the International Court of Justice. They must put their differences aside and work together to make it to the trial on time.</synopsis>
         <title>The Hitman's Bodyguard</title>
@@ -103,6 +112,7 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode4.jpg</posterFileName>
         <rating>80</rating>
+        <backgroundFileName>star-wars-episode4-background.jpg</backgroundFileName>
         <synopsis>Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.</synopsis>
         <title>Star Wars</title>
         <trailer>Star Wars Episode IV  A New Hope.mp4</trailer>
@@ -115,6 +125,7 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode5.jpg</posterFileName>
         <rating>82</rating>
+        <backgroundFileName>star-wars-episode5-background.jpg</backgroundFileName>
         <synopsis>The epic saga continues as Luke Skywalker, in hopes of defeating the evil Galactic Empire, learns the ways of the Jedi from aging master Yoda. But Darth Vader is more determined than ever to capture Luke. Meanwhile, rebel leader Princess Leia, cocky Han Solo, Chewbacca, and droids C-3PO and R2-D2 are thrown into various stages of capture, betrayal and despair.</synopsis>
         <title>Star Wars: The Empire Strikes Back</title>
         <trailer>Star Wars Episode V  The Empire Strikes Back.mp4</trailer>
@@ -127,6 +138,7 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode6.jpg</posterFileName>
         <rating>79</rating>
+        <backgroundFileName>star-wars-episode6-background.jpg</backgroundFileName>
         <synopsis>As Rebel leaders map their strategy for an all-out attack on the Emperor's newer, bigger Death Star. Han Solo remains frozen in the cavernous desert fortress of Jabba the Hutt, the most loathsome outlaw in the universe, who is also keeping Princess Leia as a slave girl. Now a master of the Force, Luke Skywalker rescues his friends, but he cannot become a true Jedi Knight until he wages his own crucial battle against Darth Vader, who has sworn to win Luke over to the dark side of the Force.</synopsis>
         <title>Star Wars: Return of the Jedi</title>
         <trailer>Star Wars Episode VI Return Of The Jedi Trailer.mp4</trailer>
@@ -139,6 +151,7 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode1.jpg</posterFileName>
         <rating>63</rating>
+        <backgroundFileName>star-wars-episode1-background.jpg</backgroundFileName>
         <synopsis>Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.</synopsis>
         <title>Star Wars: The Phantom Menace</title>
         <trailer>Star Wars Episode I  The Phantom Menace.mp4</trailer>
@@ -151,6 +164,7 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode2.jpg</posterFileName>
         <rating>64</rating>
+        <backgroundFileName>star-wars-episode2-background.jpg</backgroundFileName>
         <synopsis>Ten years after the invasion of Naboo, the galaxy is on the brink of civil war. Under the leadership of a renegade Jedi named Count Dooku, thousands of solar systems threaten to break away from the Galactic Republic. When an assassination attempt is made on Senator Padmé Amidala, the former Queen of Naboo, twenty-year-old Jedi apprentice Anakin Skywalker is assigned to protect her. In the course of his mission, Anakin discovers his love for Padmé as well as his own darker side. Soon, Anakin, Padmé, and Obi-Wan Kenobi are drawn into the heart of the Separatist movement and the beginning of the Clone Wars.</synopsis>
         <title>Star Wars: Attack of the Clones</title>
         <trailer>Star Wars Episode II  Attack of the Clones.mp4</trailer>
@@ -163,18 +177,21 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode3.jpg</posterFileName>
         <rating>70</rating>
+        <backgroundFileName>star-wars-episode3-background.jpg</backgroundFileName>
         <synopsis>Years after the onset of the Clone Wars, the noble Jedi Knights lead a massive clone army into a galaxy-wide battle against the Separatists. When the sinister Sith unveil a thousand-year-old plot to rule the galaxy, the Republic crumbles and from its ashes rises the evil Galactic Empire. Jedi hero Anakin Skywalker is seduced by the dark side of the Force to become the Emperor's new apprentice – Darth Vader. The Jedi are decimated, as Obi-Wan Kenobi and Jedi Master Yoda are forced into hiding. The only hope for the galaxy are Anakin's own offspring – the twin children born in secrecy who will grow up to become heroes.</synopsis>
         <title>Star Wars: Revenge of the Sith</title>
         <trailer>Star Wars Episode III  Revenge of the Sith.mp4</trailer>
         <youTube>https://youtu.be/5UnjrG_N8hU</youTube>
         <year>2005</year>
     </movie>
+
 
     <movie>
         <director>Patrick Hughes</director>
         <directorImage>hughes.jpg</directorImage>
         <genre>ACTION</genre>
         <posterFileName>hitman.jpg</posterFileName>
+        <backgroundFileName>hitman-background.jpg</backgroundFileName>
         <rating>65</rating>
         <synopsis>The world's top bodyguard gets a new client, a hit man who must testify at the International Court of Justice. They must put their differences aside and work together to make it to the trial on time.</synopsis>
         <title>The Hitman's Bodyguard</title>
@@ -188,6 +205,7 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode4.jpg</posterFileName>
         <rating>80</rating>
+        <backgroundFileName>star-wars-episode4-background.jpg</backgroundFileName>
         <synopsis>Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.</synopsis>
         <title>Star Wars</title>
         <trailer>Star Wars Episode IV  A New Hope.mp4</trailer>
@@ -200,6 +218,7 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode5.jpg</posterFileName>
         <rating>82</rating>
+        <backgroundFileName>star-wars-episode5-background.jpg</backgroundFileName>
         <synopsis>The epic saga continues as Luke Skywalker, in hopes of defeating the evil Galactic Empire, learns the ways of the Jedi from aging master Yoda. But Darth Vader is more determined than ever to capture Luke. Meanwhile, rebel leader Princess Leia, cocky Han Solo, Chewbacca, and droids C-3PO and R2-D2 are thrown into various stages of capture, betrayal and despair.</synopsis>
         <title>Star Wars: The Empire Strikes Back</title>
         <trailer>Star Wars Episode V  The Empire Strikes Back.mp4</trailer>
@@ -212,6 +231,7 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode6.jpg</posterFileName>
         <rating>79</rating>
+        <backgroundFileName>star-wars-episode6-background.jpg</backgroundFileName>
         <synopsis>As Rebel leaders map their strategy for an all-out attack on the Emperor's newer, bigger Death Star. Han Solo remains frozen in the cavernous desert fortress of Jabba the Hutt, the most loathsome outlaw in the universe, who is also keeping Princess Leia as a slave girl. Now a master of the Force, Luke Skywalker rescues his friends, but he cannot become a true Jedi Knight until he wages his own crucial battle against Darth Vader, who has sworn to win Luke over to the dark side of the Force.</synopsis>
         <title>Star Wars: Return of the Jedi</title>
         <trailer>Star Wars Episode VI Return Of The Jedi Trailer.mp4</trailer>
@@ -224,6 +244,7 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode1.jpg</posterFileName>
         <rating>63</rating>
+        <backgroundFileName>star-wars-episode1-background.jpg</backgroundFileName>
         <synopsis>Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.</synopsis>
         <title>Star Wars: The Phantom Menace</title>
         <trailer>Star Wars Episode I  The Phantom Menace.mp4</trailer>
@@ -236,6 +257,7 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode2.jpg</posterFileName>
         <rating>64</rating>
+        <backgroundFileName>star-wars-episode2-background.jpg</backgroundFileName>
         <synopsis>Ten years after the invasion of Naboo, the galaxy is on the brink of civil war. Under the leadership of a renegade Jedi named Count Dooku, thousands of solar systems threaten to break away from the Galactic Republic. When an assassination attempt is made on Senator Padmé Amidala, the former Queen of Naboo, twenty-year-old Jedi apprentice Anakin Skywalker is assigned to protect her. In the course of his mission, Anakin discovers his love for Padmé as well as his own darker side. Soon, Anakin, Padmé, and Obi-Wan Kenobi are drawn into the heart of the Separatist movement and the beginning of the Clone Wars.</synopsis>
         <title>Star Wars: Attack of the Clones</title>
         <trailer>Star Wars Episode II  Attack of the Clones.mp4</trailer>
@@ -248,18 +270,21 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode3.jpg</posterFileName>
         <rating>70</rating>
+        <backgroundFileName>star-wars-episode3-background.jpg</backgroundFileName>
         <synopsis>Years after the onset of the Clone Wars, the noble Jedi Knights lead a massive clone army into a galaxy-wide battle against the Separatists. When the sinister Sith unveil a thousand-year-old plot to rule the galaxy, the Republic crumbles and from its ashes rises the evil Galactic Empire. Jedi hero Anakin Skywalker is seduced by the dark side of the Force to become the Emperor's new apprentice – Darth Vader. The Jedi are decimated, as Obi-Wan Kenobi and Jedi Master Yoda are forced into hiding. The only hope for the galaxy are Anakin's own offspring – the twin children born in secrecy who will grow up to become heroes.</synopsis>
         <title>Star Wars: Revenge of the Sith</title>
         <trailer>Star Wars Episode III  Revenge of the Sith.mp4</trailer>
         <youTube>https://youtu.be/5UnjrG_N8hU</youTube>
         <year>2005</year>
     </movie>
+
 
     <movie>
         <director>Patrick Hughes</director>
         <directorImage>hughes.jpg</directorImage>
         <genre>ACTION</genre>
         <posterFileName>hitman.jpg</posterFileName>
+        <backgroundFileName>hitman-background.jpg</backgroundFileName>
         <rating>65</rating>
         <synopsis>The world's top bodyguard gets a new client, a hit man who must testify at the International Court of Justice. They must put their differences aside and work together to make it to the trial on time.</synopsis>
         <title>The Hitman's Bodyguard</title>
@@ -273,6 +298,7 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode4.jpg</posterFileName>
         <rating>80</rating>
+        <backgroundFileName>star-wars-episode4-background.jpg</backgroundFileName>
         <synopsis>Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.</synopsis>
         <title>Star Wars</title>
         <trailer>Star Wars Episode IV  A New Hope.mp4</trailer>
@@ -285,6 +311,7 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode5.jpg</posterFileName>
         <rating>82</rating>
+        <backgroundFileName>star-wars-episode5-background.jpg</backgroundFileName>
         <synopsis>The epic saga continues as Luke Skywalker, in hopes of defeating the evil Galactic Empire, learns the ways of the Jedi from aging master Yoda. But Darth Vader is more determined than ever to capture Luke. Meanwhile, rebel leader Princess Leia, cocky Han Solo, Chewbacca, and droids C-3PO and R2-D2 are thrown into various stages of capture, betrayal and despair.</synopsis>
         <title>Star Wars: The Empire Strikes Back</title>
         <trailer>Star Wars Episode V  The Empire Strikes Back.mp4</trailer>
@@ -297,6 +324,7 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode6.jpg</posterFileName>
         <rating>79</rating>
+        <backgroundFileName>star-wars-episode6-background.jpg</backgroundFileName>
         <synopsis>As Rebel leaders map their strategy for an all-out attack on the Emperor's newer, bigger Death Star. Han Solo remains frozen in the cavernous desert fortress of Jabba the Hutt, the most loathsome outlaw in the universe, who is also keeping Princess Leia as a slave girl. Now a master of the Force, Luke Skywalker rescues his friends, but he cannot become a true Jedi Knight until he wages his own crucial battle against Darth Vader, who has sworn to win Luke over to the dark side of the Force.</synopsis>
         <title>Star Wars: Return of the Jedi</title>
         <trailer>Star Wars Episode VI Return Of The Jedi Trailer.mp4</trailer>
@@ -309,6 +337,7 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode1.jpg</posterFileName>
         <rating>63</rating>
+        <backgroundFileName>star-wars-episode1-background.jpg</backgroundFileName>
         <synopsis>Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.</synopsis>
         <title>Star Wars: The Phantom Menace</title>
         <trailer>Star Wars Episode I  The Phantom Menace.mp4</trailer>
@@ -321,6 +350,7 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode2.jpg</posterFileName>
         <rating>64</rating>
+        <backgroundFileName>star-wars-episode2-background.jpg</backgroundFileName>
         <synopsis>Ten years after the invasion of Naboo, the galaxy is on the brink of civil war. Under the leadership of a renegade Jedi named Count Dooku, thousands of solar systems threaten to break away from the Galactic Republic. When an assassination attempt is made on Senator Padmé Amidala, the former Queen of Naboo, twenty-year-old Jedi apprentice Anakin Skywalker is assigned to protect her. In the course of his mission, Anakin discovers his love for Padmé as well as his own darker side. Soon, Anakin, Padmé, and Obi-Wan Kenobi are drawn into the heart of the Separatist movement and the beginning of the Clone Wars.</synopsis>
         <title>Star Wars: Attack of the Clones</title>
         <trailer>Star Wars Episode II  Attack of the Clones.mp4</trailer>
@@ -333,6 +363,7 @@
         <genre>SCIENCE_FICTION</genre>
         <posterFileName>star-wars-episode3.jpg</posterFileName>
         <rating>70</rating>
+        <backgroundFileName>star-wars-episode3-background.jpg</backgroundFileName>
         <synopsis>Years after the onset of the Clone Wars, the noble Jedi Knights lead a massive clone army into a galaxy-wide battle against the Separatists. When the sinister Sith unveil a thousand-year-old plot to rule the galaxy, the Republic crumbles and from its ashes rises the evil Galactic Empire. Jedi hero Anakin Skywalker is seduced by the dark side of the Force to become the Emperor's new apprentice – Darth Vader. The Jedi are decimated, as Obi-Wan Kenobi and Jedi Master Yoda are forced into hiding. The only hope for the galaxy are Anakin's own offspring – the twin children born in secrecy who will grow up to become heroes.</synopsis>
         <title>Star Wars: Revenge of the Sith</title>
         <trailer>Star Wars Episode III  Revenge of the Sith.mp4</trailer>
@@ -340,129 +371,4 @@
         <year>2005</year>
     </movie>
 
-    <movie>
-        <director>Patrick Hughes</director>
-        <directorImage>hughes.jpg</directorImage>
-        <genre>ACTION</genre>
-        <posterFileName>hitman.jpg</posterFileName>
-        <rating>65</rating>
-        <synopsis>The world's top bodyguard gets a new client, a hit man who must testify at the International Court of Justice. They must put their differences aside and work together to make it to the trial on time.</synopsis>
-        <title>The Hitman's Bodyguard</title>
-        <trailer>The Hitman's Bodyguard.mp4</trailer>
-        <youTube>https://www.youtube.com/watch?v=F4Afusxc2SM</youTube>
-        <year>2017</year>
-    </movie>
-    <movie>
-        <director>George Lucas</director>
-        <directorImage>lucas.jpg</directorImage>
-        <genre>SCIENCE_FICTION</genre>
-        <posterFileName>star-wars-episode4.jpg</posterFileName>
-        <rating>80</rating>
-        <synopsis>Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.</synopsis>
-        <title>Star Wars</title>
-        <trailer>Star Wars Episode IV  A New Hope.mp4</trailer>
-        <youTube>https://youtu.be/vZ734NWnAHA</youTube>
-        <year>1977</year>
-    </movie>
-    <movie>
-        <director>Irvin Kershner</director>
-        <directorImage>kershner.jpg</directorImage>
-        <genre>SCIENCE_FICTION</genre>
-        <posterFileName>star-wars-episode5.jpg</posterFileName>
-        <rating>82</rating>
-        <synopsis>The epic saga continues as Luke Skywalker, in hopes of defeating the evil Galactic Empire, learns the ways of the Jedi from aging master Yoda. But Darth Vader is more determined than ever to capture Luke. Meanwhile, rebel leader Princess Leia, cocky Han Solo, Chewbacca, and droids C-3PO and R2-D2 are thrown into various stages of capture, betrayal and despair.</synopsis>
-        <title>Star Wars: The Empire Strikes Back</title>
-        <trailer>Star Wars Episode V  The Empire Strikes Back.mp4</trailer>
-        <youTube>https://youtu.be/KwYa7UpoWtM</youTube>
-        <year>1980</year>
-    </movie>
-    <movie>
-        <director>Richard Marquand</director>
-        <directorImage>marquand.jpg</directorImage>
-        <genre>SCIENCE_FICTION</genre>
-        <posterFileName>star-wars-episode6.jpg</posterFileName>
-        <rating>79</rating>
-        <synopsis>As Rebel leaders map their strategy for an all-out attack on the Emperor's newer, bigger Death Star. Han Solo remains frozen in the cavernous desert fortress of Jabba the Hutt, the most loathsome outlaw in the universe, who is also keeping Princess Leia as a slave girl. Now a master of the Force, Luke Skywalker rescues his friends, but he cannot become a true Jedi Knight until he wages his own crucial battle against Darth Vader, who has sworn to win Luke over to the dark side of the Force.</synopsis>
-        <title>Star Wars: Return of the Jedi</title>
-        <trailer>Star Wars Episode VI Return Of The Jedi Trailer.mp4</trailer>
-        <youTube>https://youtu.be/XgB4gaY2dWE</youTube>
-        <year>1983</year>
-    </movie>
-    <movie>
-        <director>George Lucas</director>
-        <directorImage>lucas.jpg</directorImage>
-        <genre>SCIENCE_FICTION</genre>
-        <posterFileName>star-wars-episode1.jpg</posterFileName>
-        <rating>63</rating>
-        <synopsis>Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.</synopsis>
-        <title>Star Wars: The Phantom Menace</title>
-        <trailer>Star Wars Episode I  The Phantom Menace.mp4</trailer>
-        <youTube>https://youtu.be/bD7bpG-zDJQ</youTube>
-        <year>1999</year>
-    </movie>
-    <movie>
-        <director>George Lucas</director>
-        <directorImage>lucas.jpg</directorImage>
-        <genre>SCIENCE_FICTION</genre>
-        <posterFileName>star-wars-episode2.jpg</posterFileName>
-        <rating>64</rating>
-        <synopsis>Ten years after the invasion of Naboo, the galaxy is on the brink of civil war. Under the leadership of a renegade Jedi named Count Dooku, thousands of solar systems threaten to break away from the Galactic Republic. When an assassination attempt is made on Senator Padmé Amidala, the former Queen of Naboo, twenty-year-old Jedi apprentice Anakin Skywalker is assigned to protect her. In the course of his mission, Anakin discovers his love for Padmé as well as his own darker side. Soon, Anakin, Padmé, and Obi-Wan Kenobi are drawn into the heart of the Separatist movement and the beginning of the Clone Wars.</synopsis>
-        <title>Star Wars: Attack of the Clones</title>
-        <trailer>Star Wars Episode II  Attack of the Clones.mp4</trailer>
-        <youTube>https://youtu.be/CO2OLQ2kiq8</youTube>
-        <year>2002</year>
-    </movie>
-    <movie>
-        <director>Georg Lucas</director>
-        <directorImage>lucas.jpg</directorImage>
-        <genre>SCIENCE_FICTION</genre>
-        <posterFileName>star-wars-episode3.jpg</posterFileName>
-        <rating>70</rating>
-        <synopsis>Years after the onset of the Clone Wars, the noble Jedi Knights lead a massive clone army into a galaxy-wide battle against the Separatists. When the sinister Sith unveil a thousand-year-old plot to rule the galaxy, the Republic crumbles and from its ashes rises the evil Galactic Empire. Jedi hero Anakin Skywalker is seduced by the dark side of the Force to become the Emperor's new apprentice – Darth Vader. The Jedi are decimated, as Obi-Wan Kenobi and Jedi Master Yoda are forced into hiding. The only hope for the galaxy are Anakin's own offspring – the twin children born in secrecy who will grow up to become heroes.</synopsis>
-        <title>Star Wars: Revenge of the Sith</title>
-        <trailer>Star Wars Episode III  Revenge of the Sith.mp4</trailer>
-        <youTube>https://youtu.be/5UnjrG_N8hU</youTube>
-        <year>2005</year>
-    </movie>
-
-    <!-- movie>
-        <director></director>
-        <genre></genre>
-        <posterFileName></posterFileName>
-        <rating></rating>
-        <synopsis></synopsis>
-        <title></title>
-        <trailer></trailer>
-        <year></year>
-    </movie>
-    <movie>
-        <director></director>
-        <genre></genre>
-        <posterFileName></posterFileName>
-        <rating></rating>
-        <synopsis></synopsis>
-        <title></title>
-        <trailer></trailer>
-        <year></year>
-    </movie>
-    <movie>
-        <director></director>
-        <genre></genre>
-        <posterFileName></posterFileName>
-        <rating></rating>
-        <synopsis></synopsis>
-        <title></title>
-        <trailer></trailer>
-        <year></year>
-    </movie>
-    <movie>
-        <director></director>
-        <genre></genre>
-        <posterFileName></posterFileName>
-        <rating></rating>
-        <synopsis></synopsis>
-        <title></title>
-        <trailer></trailer>
-        <year></year>
-    </movie -->
 </database>
