@@ -53,6 +53,7 @@ public class MovieApp extends Application {
     private void showDemo1() {
         MovieView movieView = new MovieView();
         Scene scene = new Scene(movieView);
+        scene.getStylesheets().add(MovieApp.class.getResource("/styles1.css").toExternalForm());
 
         Stage demo1Stage = new Stage();
         demo1Stage.setTitle("Movie Database");
@@ -83,40 +84,27 @@ public class MovieApp extends Application {
         final MasterDetailViewFeatures features = new MasterDetailViewFeatures();
 
         currentStage = new Stage();
+
         try {
             showMasterDetailInWindow(currentStage, database, features);
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         features.customWindowUIProperty().addListener((obs, oldVal, newVal) -> {
+            if (currentStage != null) {
+                currentStage.hide();
+            }
+
             final Stage newWindow = new Stage();
             try {
                 showMasterDetailInWindow(newWindow, database, features);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if(currentStage != null) {
-                final Stage toHide = currentStage;
-                //Platform.runLater(() -> toHide.close());
-            }
+
             currentStage = newWindow;
-
         });
-
-
-        final FeaturesDialog featuresDialog = new FeaturesDialog(currentStage);
-        featuresDialog.addFeature(new Feature("CSS", features.useCssProperty()));
-        featuresDialog.addFeature(new Feature("Image Background", features.movieBackgroundProperty()));
-        featuresDialog.addFeature(new Feature("List Animation", features.listAnimationProperty()));
-        featuresDialog.addFeature(new Feature("List Shadow", features.listShadowProperty()));
-        featuresDialog.addFeature(new Feature("List Cache", features.listCacheProperty()));
-        featuresDialog.addFeature(new Feature("Poster Transform", features.posterTransformProperty()));
-        featuresDialog.addFeature(new Feature("Custom Window UI", features.customWindowUIProperty()));
-        featuresDialog.addFeature(new Feature("Custom Window Clip", features.customWindowClipProperty()));
-        featuresDialog.show();
     }
 
     private void showMasterDetailInWindow(final Stage stage, final Database database, final MasterDetailViewFeatures features) throws JAXBException, IOException {
@@ -127,6 +115,7 @@ public class MovieApp extends Application {
         clip.setArcWidth(18);
         clip.widthProperty().bind(stage.widthProperty());
         clip.heightProperty().bind(stage.heightProperty());
+
         //TODO: Only clipping or PerspectiveCamera is working... :(
         features.customWindowClipProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal) {
@@ -139,13 +128,10 @@ public class MovieApp extends Application {
         final Scene scene = new Scene(viewRoot);
 
         features.useCssProperty().addListener((obs, oldVal, newVal) -> {
-            if(newVal) {
-                scene.getStylesheets().add(MovieApp.class.getResource("/styles.css").toExternalForm());
-                scene.getStylesheets().add(MovieApp.class.getResource("/listview.css").toExternalForm());
-            } else {
-                scene.getStylesheets().clear();
-            }
+            updateStylesheets(scene, newVal);
         });
+
+        updateStylesheets(scene, features.isUseCss());
 
         scene.setFill(Color.TRANSPARENT);
         scene.setCamera(new PerspectiveCamera());
@@ -160,6 +146,26 @@ public class MovieApp extends Application {
         stage.setHeight(720);
         stage.centerOnScreen();
         stage.show();
+
+        final FeaturesDialog featuresDialog = new FeaturesDialog(stage);
+        featuresDialog.addFeature(new Feature("CSS", features.useCssProperty()));
+        featuresDialog.addFeature(new Feature("Image Background", features.movieBackgroundProperty()));
+        featuresDialog.addFeature(new Feature("List Animation", features.listAnimationProperty()));
+        featuresDialog.addFeature(new Feature("List Shadow", features.listShadowProperty()));
+        featuresDialog.addFeature(new Feature("List Cache", features.listCacheProperty()));
+        featuresDialog.addFeature(new Feature("Poster Transform", features.posterTransformProperty()));
+        featuresDialog.addFeature(new Feature("Custom Window UI", features.customWindowUIProperty()));
+        featuresDialog.addFeature(new Feature("Custom Window Clip", features.customWindowClipProperty()));
+        featuresDialog.show();
+    }
+
+    private void updateStylesheets(Scene scene, Boolean useCss) {
+        if (useCss) {
+            scene.getStylesheets().add(MovieApp.class.getResource("/styles2.css").toExternalForm());
+            scene.getStylesheets().add(MovieApp.class.getResource("/listview.css").toExternalForm());
+        } else {
+            scene.getStylesheets().clear();
+        }
     }
 
     public static void main(String[] args) {

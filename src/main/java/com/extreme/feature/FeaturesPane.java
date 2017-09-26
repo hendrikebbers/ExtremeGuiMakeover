@@ -75,13 +75,14 @@ public class FeaturesPane extends VBox {
     public void addFeature(final Feature feature) {
         features.add(feature);
 
-        HBox featureBox = new HBox();
+        HBox featureBox = new HBox(10);
 
         ToggleSwitch toggleButton = new ToggleSwitch();
         toggleButton.textProperty().bindBidirectional(feature.nameProperty());
         toggleButton.selectedProperty().bindBidirectional(feature.activeProperty());
         installDragListener(toggleButton);
         toggleButton.setMaxWidth(Double.MAX_VALUE);
+        HBox.setHgrow(toggleButton, Priority.ALWAYS);
 
         ToggleButton slideButton = FontAwesomeIconFactory.get().createIconToggleButton(FontAwesomeIcon.DOWNLOAD);
 
