@@ -10,6 +10,8 @@ import javafx.application.Platform;
 import javafx.scene.Parent;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -21,6 +23,101 @@ import java.io.IOException;
 public class MovieApp extends Application {
 
     private Stage currentStage;
+
+    private static final Database database = Database.loadDefaultDatabase();
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Platform.setImplicitExit(false);
+
+        Button demo1Button = new Button("Demo 1");
+        Button demo2Button = new Button("Demo 2");
+
+        demo1Button.getStyleClass().add("demo1");
+        demo2Button.getStyleClass().add("demo2");
+
+        demo1Button.setOnAction(evt -> showDemo1());
+        demo2Button.setOnAction(evt -> showDemo2());
+
+        HBox hBox = new HBox(demo1Button, demo2Button);
+
+        Scene scene = new Scene(hBox);
+        scene.getStylesheets().add(MovieApp.class.getResource("/chooser.css").toExternalForm());
+
+        primaryStage.setScene(scene);
+        primaryStage.sizeToScene();
+        primaryStage.centerOnScreen();
+        primaryStage.show();
+    }
+
+    private void showDemo1() {
+        MovieView movieView = new MovieView();
+        Scene scene = new Scene(movieView);
+
+        Stage demo1Stage = new Stage();
+        demo1Stage.setTitle("Movie Database");
+        demo1Stage.setScene(scene);
+        demo1Stage.sizeToScene();
+        demo1Stage.show();
+
+        FeaturesDialog featuresDialog1 = new FeaturesDialog(demo1Stage);
+        featuresDialog1.addFeature(new Feature("CSS", movieView.useCssProperty()));
+        featuresDialog1.addFeature(new Feature("CSS - Custom Fonts", movieView.useCustomFontsProperty()));
+        featuresDialog1.addFeature(new Feature("Filtering", movieView.enableSortingAndFilteringProperty()));
+        featuresDialog1.addFeature(new Feature("Media View - Trailers", movieView.mediaViewTrailersProperty()));
+        featuresDialog1.addFeature(new Feature("Media View - Background", movieView.showMediaViewBackgroundProperty()));
+        featuresDialog1.addFeature(new Feature("Media View - Animations", movieView.animateMediaViewTrailersProperty()));
+        featuresDialog1.addFeature(new Feature("List View", movieView.useListViewProperty()));
+        featuresDialog1.addFeature(new Feature("List View - Cell Factory", movieView.useListViewCellFactoryProperty()));
+        featuresDialog1.addFeature(new Feature("List View - Clipping", movieView.useClippingProperty()));
+        featuresDialog1.addFeature(new Feature("List View - Scroll Bar", movieView.usePrettyListViewProperty()));
+        featuresDialog1.addFeature(new Feature("Poster - Effects", movieView.enableEffectsProperty()));
+        featuresDialog1.addFeature(new Feature("Poster - Parallax", movieView.enableParallaxProperty()));
+        featuresDialog1.addFeature(new Feature("ControlsFX", movieView.useControlsFXProperty()));
+        featuresDialog1.addFeature(new Feature("Drag & Drop", movieView.enableDragAndDropOfPosterProperty()));
+        featuresDialog1.addFeature(new Feature("Drag & Drop - Drag Image", movieView.enableDragAndDropOfPosterWithDragImageProperty()));
+        featuresDialog1.show();
+    }
+
+    private void showDemo2() {
+        final MasterDetailViewFeatures features = new MasterDetailViewFeatures();
+
+        currentStage = new Stage();
+        try {
+            showMasterDetailInWindow(currentStage, database, features);
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        features.customWindowUIProperty().addListener((obs, oldVal, newVal) -> {
+            final Stage newWindow = new Stage();
+            try {
+                showMasterDetailInWindow(newWindow, database, features);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if(currentStage != null) {
+                final Stage toHide = currentStage;
+                //Platform.runLater(() -> toHide.close());
+            }
+            currentStage = newWindow;
+
+        });
+
+
+        final FeaturesDialog featuresDialog = new FeaturesDialog(currentStage);
+        featuresDialog.addFeature(new Feature("CSS", features.useCssProperty()));
+        featuresDialog.addFeature(new Feature("Image Background", features.movieBackgroundProperty()));
+        featuresDialog.addFeature(new Feature("List Animation", features.listAnimationProperty()));
+        featuresDialog.addFeature(new Feature("List Shadow", features.listShadowProperty()));
+        featuresDialog.addFeature(new Feature("List Cache", features.listCacheProperty()));
+        featuresDialog.addFeature(new Feature("Poster Transform", features.posterTransformProperty()));
+        featuresDialog.addFeature(new Feature("Custom Window UI", features.customWindowUIProperty()));
+        featuresDialog.addFeature(new Feature("Custom Window Clip", features.customWindowClipProperty()));
+        featuresDialog.show();
+    }
 
     private void showMasterDetailInWindow(final Stage stage, final Database database, final MasterDetailViewFeatures features) throws JAXBException, IOException {
         final Parent viewRoot = ViewFactory.createMasterDetailView(database, features);
@@ -63,63 +160,6 @@ public class MovieApp extends Application {
         stage.setHeight(720);
         stage.centerOnScreen();
         stage.show();
-    }
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        Platform.setImplicitExit(false);
-
-        final MasterDetailViewFeatures features = new MasterDetailViewFeatures();
-        final Database database = Database.loadDefaultDatabase();
-
-        currentStage = primaryStage;
-        showMasterDetailInWindow(currentStage, database, features);
-        features.customWindowUIProperty().addListener((obs, oldVal, newVal) -> {
-            final Stage newWindow = new Stage();
-            try {
-                showMasterDetailInWindow(newWindow, database, features);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if(currentStage != null) {
-                final Stage toHide = currentStage;
-                //Platform.runLater(() -> toHide.close());
-            }
-            currentStage = newWindow;
-
-        });
-
-
-        final FeaturesDialog featuresDialog2 = new FeaturesDialog(primaryStage);
-        featuresDialog2.addFeature(new Feature("CSS", features.useCssProperty()));
-        featuresDialog2.addFeature(new Feature("Image Background", features.movieBackgroundProperty()));
-        featuresDialog2.addFeature(new Feature("List Animation", features.listAnimationProperty()));
-        featuresDialog2.addFeature(new Feature("List Shadow", features.listShadowProperty()));
-        featuresDialog2.addFeature(new Feature("List Cache", features.listCacheProperty()));
-        featuresDialog2.addFeature(new Feature("Poster Transform", features.posterTransformProperty()));
-        featuresDialog2.addFeature(new Feature("Custom Window UI", features.customWindowUIProperty()));
-        featuresDialog2.addFeature(new Feature("Custom Window Clip", features.customWindowClipProperty()));
-        featuresDialog2.show();
-
-
-
-        final MovieView movieView = new MovieView();
-        final FeaturesDialog featuresDialog = new FeaturesDialog(primaryStage);
-        featuresDialog.addFeature(new Feature("CSS", movieView.useCssProperty()));
-        featuresDialog.addFeature(new Feature("CSS - Custom Fonts", movieView.useCustomFontsProperty()));
-        featuresDialog.addFeature(new Feature("Filtering", movieView.enableSortingAndFilteringProperty()));
-        featuresDialog.addFeature(new Feature("Media View - Trailers", movieView.mediaViewTrailersProperty()));
-        featuresDialog.addFeature(new Feature("Media View - Background", movieView.showMediaViewBackgroundProperty()));
-        featuresDialog.addFeature(new Feature("Media View - Animations", movieView.animateMediaViewTrailersProperty()));
-        featuresDialog.addFeature(new Feature("List View", movieView.useListViewProperty()));
-        featuresDialog.addFeature(new Feature("List View - Cell Factory", movieView.useListViewCellFactoryProperty()));
-        featuresDialog.addFeature(new Feature("List View - Clipping", movieView.useClippingProperty()));
-        featuresDialog.addFeature(new Feature("List View - Scroll Bar", movieView.usePrettyListViewProperty()));
-        featuresDialog.addFeature(new Feature("Poster - Effects", movieView.enableEffectsProperty()));
-        featuresDialog.addFeature(new Feature("Poster - Parallax", movieView.enableParallaxProperty()));
-        featuresDialog.addFeature(new Feature("ControlsFX", movieView.useControlsFXProperty()));
-        featuresDialog.addFeature(new Feature("Drag & Drop", movieView.enableDragAndDropOfPosterProperty()));
-        featuresDialog.addFeature(new Feature("Drag & Drop - Drag Image", movieView.enableDragAndDropOfPosterWithDragImageProperty()));
     }
 
     public static void main(String[] args) {

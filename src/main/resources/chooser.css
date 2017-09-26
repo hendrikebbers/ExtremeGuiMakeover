@@ -1,0 +1,5 @@
+.demo1,
+.demo2 {
+    -fx-pref-width: 160;
+    -fx-pref-height: 90;
+}
