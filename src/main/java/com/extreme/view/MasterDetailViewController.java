@@ -1,5 +1,6 @@
 package com.extreme.view;
 
+import com.extreme.Util;
 import com.extreme.data.Movie;
 import com.extreme.ui.MovieListCell;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -75,6 +76,8 @@ public class MasterDetailViewController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        backgroundImageView.setMouseTransparent(true);
+
         movieList.setCellFactory(c -> new MovieListCell());
         movieList.setItems(model.getMovies());
         movieList.setCacheHint(CacheHint.SPEED);
@@ -92,6 +95,8 @@ public class MasterDetailViewController implements Initializable {
         moviePosterWrapper.setCacheHint(CacheHint.SPEED);
         posterImageView.setCache(true);
         posterImageView.setCacheHint(CacheHint.SPEED);
+
+        Util.installWindowDragListener(rootPane);
 
         addFeatureSupport();
         updateDetailArea();
