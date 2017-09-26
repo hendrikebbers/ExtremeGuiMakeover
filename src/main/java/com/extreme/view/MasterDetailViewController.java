@@ -82,8 +82,6 @@ public class MasterDetailViewController implements Initializable {
         model.selectedMovieProperty().bind(movieList.getSelectionModel().selectedItemProperty());
         model.selectedMovieProperty().addListener((obs, oldVal, newVal) -> updateDetailArea());
         detailView.visibleProperty().bind(model.selectedMovieProperty().isNotNull());
-        rootPane.widthProperty().addListener((obs, oldVal, newVal) -> updateBackgroundImageBinding());
-        rootPane.heightProperty().addListener((obs, oldVal, newVal) -> updateBackgroundImageBinding());
 
         maximizeAppIconView.setOnMouseClicked(e -> ((Stage)rootPane.getScene().getWindow()).setFullScreen(!((Stage)rootPane.getScene().getWindow()).isFullScreen()));
         closeAppIconView.setOnMouseClicked(e -> rootPane.getScene().getWindow().hide());
@@ -96,12 +94,14 @@ public class MasterDetailViewController implements Initializable {
         posterImageView.setCacheHint(CacheHint.SPEED);
 
         addFeatureSupport();
-        updateBackgroundImageBinding();
         updateDetailArea();
     }
 
     private void addFeatureSupport() {
         backgroundImageView.visibleProperty().bind(features.movieBackgroundProperty());
+        backgroundImageView.setPreserveRatio(false);
+        backgroundImageView.fitWidthProperty().bind(rootPane.widthProperty());
+        backgroundImageView.fitHeightProperty().bind(rootPane.heightProperty());
 
         movieListGlasspane.visibleProperty().bind(features.listShadowProperty());
         movieList.cacheProperty().bind(features.listCacheProperty());
@@ -162,17 +162,6 @@ public class MasterDetailViewController implements Initializable {
             movieListGlaspaneTransition.setToValue(1.0);
         }
         movieListGlaspaneTransition.play();
-    }
-
-    private void updateBackgroundImageBinding() {
-        //TODO: not perfect. Works just for our images...
-        backgroundImageView.setFitHeight(-1);
-        backgroundImageView.setFitWidth(-1);
-        if(rootPane.getHeight() > rootPane.getWidth()) {
-            backgroundImageView.setFitHeight(rootPane.getHeight());
-        } else {
-            backgroundImageView.setFitWidth(rootPane.getWidth());
-        }
     }
 
     private void updateDetailArea() {
