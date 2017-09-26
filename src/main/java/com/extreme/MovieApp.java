@@ -23,7 +23,8 @@ public class MovieApp extends Application {
 
     private Stage currentStage;
 
-    private static final Database database = Database.loadDefaultDatabase();
+    private static final Database database = Database.loadDatabase();
+    //private static final SlidesDatabase slidesDatabase = SlidesDatabase.loadDatabase();
 
     @Override
     public void start(Stage primaryStage) throws Exception {

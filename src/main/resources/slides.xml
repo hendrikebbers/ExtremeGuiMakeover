@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<slides-database>
+    <slide-entry nodeId="#root" featureId="css">
+        <slide>
+            <name>slides/demo1/css/slide1.png</name>
+            <name>slides/demo1/css/slide2.png</name>
+            <name>slides/demo1/css/slide3.png</name>
+        </slide>
+    </slide-entry>
+</slides-database>

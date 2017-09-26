@@ -36,7 +36,7 @@
                         </StackPane>
                         <VBox maxHeight="1.7976931348623157E308" maxWidth="460.0" minWidth="460.0" prefWidth="460.0">
                            <children>
-                              <Text fx:id="titleText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="movie-title" text="Star Wars: The Empire Strikes Back" />
+                              <Text fx:id="titleText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="movie-name" text="Star Wars: The Empire Strikes Back" />
                               <TextFlow maxHeight="-Infinity" minHeight="-Infinity" styleClass="movie-description-flow">
                                  <children>
                                     <Text fx:id="descriptionText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="movie-description" text="Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire." />

@@ -23,7 +23,7 @@ public class Database {
     }
 
 
-    public static Database loadDefaultDatabase() {
+    public static Database loadDatabase() {
         Database database = null;
 
         try (InputStream in = MovieApp.class.getResourceAsStream("/movies.xml")) {
