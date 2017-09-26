@@ -8,17 +8,17 @@ import javafx.stage.Window;
 /**
  * Created by hendrikebbers on 19.09.17.
  */
-public class OptionsDialog extends Stage {
+public class FeaturesDialog extends Stage {
 
-    private final OptionsPane optionsPane = new OptionsPane();
+    private final FeaturesPane featuresPane = new FeaturesPane();
 
-    public OptionsDialog(final Window parent) {
+    public FeaturesDialog(final Window parent) {
         setTitle("Makeover Tools");
         setResizable(false);
         initStyle(StageStyle.UTILITY);
         setOnCloseRequest(evt -> evt.consume());
 
-        Scene optionsScene = new Scene(optionsPane);
+        Scene optionsScene = new Scene(featuresPane);
         setScene(optionsScene);
 
         sizeToScene();
@@ -30,6 +30,6 @@ public class OptionsDialog extends Stage {
     }
 
     public void addFeature(final Feature feature) {
-        optionsPane.addFeature(feature);
+        featuresPane.addFeature(feature);
     }
 }

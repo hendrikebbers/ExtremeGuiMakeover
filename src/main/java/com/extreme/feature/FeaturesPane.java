@@ -16,7 +16,7 @@ import org.controlsfx.control.ToggleSwitch;
 /**
  * Created by lemmi on 14.09.17.
  */
-public class OptionsPane extends VBox {
+public class FeaturesPane extends VBox {
 
     private double mouseX;
 
@@ -24,10 +24,10 @@ public class OptionsPane extends VBox {
 
     private final ObservableList<Feature> features = FXCollections.observableArrayList();
 
-    public OptionsPane() {
+    public FeaturesPane() {
         super();
 
-        getStylesheets().add(OptionsPane.class.getResource("/options-pane.css").toExternalForm());
+        getStylesheets().add(FeaturesPane.class.getResource("/options-pane.css").toExternalForm());
 
         getStyleClass().add("options-pane");
 
