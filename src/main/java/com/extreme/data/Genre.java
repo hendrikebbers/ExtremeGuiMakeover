@@ -2,6 +2,7 @@ package com.extreme.data;
 
 public enum Genre {
     ACTION("Action"),
+    ADVENTURE("Adventure"),
     DRAMA("Drama"),
     SCIENCE_FICTION("Science Fiction"),
     COMEDY("Comedy");
