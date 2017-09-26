@@ -75,20 +75,17 @@ public class FeaturesPane extends VBox {
     public void addFeature(final Feature feature) {
         features.add(feature);
 
-        HBox featureBox = new HBox(10);
+        ToggleSwitch toggleSwitch = new ToggleSwitch();
+        toggleSwitch.textProperty().bindBidirectional(feature.nameProperty());
+        toggleSwitch.selectedProperty().bindBidirectional(feature.activeProperty());
+        installDragListener(toggleSwitch);
+        toggleSwitch.setMaxWidth(Double.MAX_VALUE);
+        HBox.setHgrow(toggleSwitch, Priority.ALWAYS);
 
-        ToggleSwitch toggleButton = new ToggleSwitch();
-        toggleButton.textProperty().bindBidirectional(feature.nameProperty());
-        toggleButton.selectedProperty().bindBidirectional(feature.activeProperty());
-        installDragListener(toggleButton);
-        toggleButton.setMaxWidth(Double.MAX_VALUE);
-        HBox.setHgrow(toggleButton, Priority.ALWAYS);
+        ToggleButton showSlidesButton = FontAwesomeIconFactory.get().createIconToggleButton(FontAwesomeIcon.DOWNLOAD);
+        installDragListener(showSlidesButton);
 
-        ToggleButton slideButton = FontAwesomeIconFactory.get().createIconToggleButton(FontAwesomeIcon.DOWNLOAD);
-
-        featureBox.getChildren().addAll(toggleButton, slideButton);
-
-
+        HBox featureBox = new HBox(10, toggleSwitch, showSlidesButton);
 
         getChildren().add(featureBox);
     }

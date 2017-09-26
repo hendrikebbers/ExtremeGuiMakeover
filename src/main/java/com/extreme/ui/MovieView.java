@@ -26,7 +26,7 @@ public class MovieView extends Control {
     private final String listViewStylesheet = MovieView.class.getResource("/listview.css").toExternalForm();
 
     public MovieView() {
-        getStyleClass().add("movie-com.extreme.view");
+        getStyleClass().add("movie-view");
 
         useCss.addListener(it -> updateOptionalStylesheet());
         useCustomFonts.addListener(it -> updateFontStylesheet());
@@ -93,8 +93,6 @@ public class MovieView extends Control {
     private final BooleanProperty useListViewCellFactory = new SimpleBooleanProperty();
 
     private final BooleanProperty useControlsFX = new SimpleBooleanProperty();
-
-    private final BooleanProperty enableParallax = new SimpleBooleanProperty();
 
     private final BooleanProperty enableDragAndDropOfPoster = new SimpleBooleanProperty();
 
@@ -211,18 +209,6 @@ public class MovieView extends Control {
 
     public void setUseControlsFX(boolean useControlsFX) {
         this.useControlsFX.set(useControlsFX);
-    }
-
-    public boolean isEnableParallax() {
-        return enableParallax.get();
-    }
-
-    public BooleanProperty enableParallaxProperty() {
-        return enableParallax;
-    }
-
-    public void setEnableParallax(boolean enableParallax) {
-        this.enableParallax.set(enableParallax);
     }
 
     public boolean isEnableDragAndDropOfPoster() {

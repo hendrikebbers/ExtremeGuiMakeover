@@ -6,7 +6,6 @@ import com.extreme.feature.FeaturesDialog;
 import com.extreme.ui.MovieView;
 import com.extreme.view.MasterDetailViewFeatures;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.scene.Parent;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
@@ -28,8 +27,6 @@ public class MovieApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Platform.setImplicitExit(false);
-
         Button demo1Button = new Button("Demo 1");
         Button demo2Button = new Button("Demo 2");
 
@@ -44,6 +41,7 @@ public class MovieApp extends Application {
         Scene scene = new Scene(hBox);
         scene.getStylesheets().add(MovieApp.class.getResource("/chooser.css").toExternalForm());
 
+        primaryStage.setTitle("Extreme GUI Makeover");
         primaryStage.setScene(scene);
         primaryStage.sizeToScene();
         primaryStage.centerOnScreen();
@@ -73,7 +71,6 @@ public class MovieApp extends Application {
         featuresDialog1.addFeature(new Feature("List View - Clipping", movieView.useClippingProperty()));
         featuresDialog1.addFeature(new Feature("List View - Scroll Bar", movieView.usePrettyListViewProperty()));
         featuresDialog1.addFeature(new Feature("Poster - Effects", movieView.enableEffectsProperty()));
-        featuresDialog1.addFeature(new Feature("Poster - Parallax", movieView.enableParallaxProperty()));
         featuresDialog1.addFeature(new Feature("ControlsFX", movieView.useControlsFXProperty()));
         featuresDialog1.addFeature(new Feature("Drag & Drop", movieView.enableDragAndDropOfPosterProperty()));
         featuresDialog1.addFeature(new Feature("Drag & Drop - Drag Image", movieView.enableDragAndDropOfPosterWithDragImageProperty()));
