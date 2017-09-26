@@ -60,6 +60,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -429,8 +430,13 @@ public class MovieViewSkin extends SkinBase<MovieView> {
 
     private void showTrailer() {
         Movie movie = getSkinnable().getSelectedMovie();
-        String trailer = MovieApp.class.getResource("/trailers/" + movie.getTrailer()).toExternalForm();
-        getSkinnable().setSelectedTrailer(trailer);
+        final URL resource = MovieApp.class.getResource("/trailers/" + movie.getTrailer());
+        if (resource != null) {
+            String trailer = resource.toExternalForm();
+            getSkinnable().setSelectedTrailer(trailer);
+        } else {
+            getSkinnable().setSelectedTrailer("");
+        }
     }
 
     class GlassPane extends StackPane {
