@@ -1,16 +1,15 @@
 package com.extreme.feature;
 
+import com.extreme.Util;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
-import javafx.stage.Window;
 import org.controlsfx.control.ToggleSwitch;
 
 /**
@@ -35,13 +34,13 @@ public class FeaturesPane extends VBox {
         all.setOnAction(evt -> features.forEach(f -> f.setActive(true)));
         all.setMaxWidth(Double.MAX_VALUE);
         all.setId("all-button");
-        installDragListener(all);
+        Util.installWindowDragListener(all);
 
         Button reset = new Button("Reset");
         reset.setOnAction(evt -> features.forEach(f -> f.setActive(false)));
         reset.setMaxWidth(Double.MAX_VALUE);
         reset.setId("reset-button");
-        installDragListener(reset);
+        Util.installWindowDragListener(reset);
 
         HBox top = new HBox(all, reset);
         top.getStyleClass().add("toolbar");
@@ -52,38 +51,18 @@ public class FeaturesPane extends VBox {
         getChildren().add(top);
     }
 
-    private void installDragListener(Node node) {
-        node.setOnMousePressed(evt -> {
-            mouseX = evt.getScreenX();
-            mouseY = evt.getScreenY();
-        });
-
-        node.setOnMouseDragged(evt -> {
-            double deltaX = evt.getScreenX() - mouseX;
-            double deltaY = evt.getScreenY() - mouseY;
-
-            Window window = getScene().getWindow();
-
-            window.setX(getScene().getWindow().getX() + deltaX);
-            window.setY(getScene().getWindow().getY() + deltaY);
-
-            mouseX = evt.getScreenX();
-            mouseY = evt.getScreenY();
-        });
-    }
-
     public void addFeature(final Feature feature) {
         features.add(feature);
 
         ToggleSwitch toggleSwitch = new ToggleSwitch();
         toggleSwitch.textProperty().bindBidirectional(feature.nameProperty());
         toggleSwitch.selectedProperty().bindBidirectional(feature.activeProperty());
-        installDragListener(toggleSwitch);
+        Util.installWindowDragListener(toggleSwitch);
         toggleSwitch.setMaxWidth(Double.MAX_VALUE);
         HBox.setHgrow(toggleSwitch, Priority.ALWAYS);
 
         ToggleButton showSlidesButton = FontAwesomeIconFactory.get().createIconToggleButton(FontAwesomeIcon.DOWNLOAD);
-        installDragListener(showSlidesButton);
+        Util.installWindowDragListener(showSlidesButton);
 
         HBox featureBox = new HBox(10, toggleSwitch, showSlidesButton);
 

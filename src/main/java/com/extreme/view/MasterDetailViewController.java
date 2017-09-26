@@ -1,5 +1,6 @@
 package com.extreme.view;
 
+import com.extreme.Util;
 import com.extreme.data.Movie;
 import com.extreme.ui.MovieListCell;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -83,6 +84,8 @@ public class MasterDetailViewController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        backgroundImageView.setMouseTransparent(true);
+
         movieList.setCellFactory(c -> new MovieListCell());
         movieList.setItems(model.getMovies());
         movieList.setCacheHint(CacheHint.SPEED);
@@ -101,6 +104,8 @@ public class MasterDetailViewController implements Initializable {
         posterImageView.setCache(true);
         posterImageView.setCacheHint(CacheHint.SPEED);
 
+        Util.installWindowDragListener(rootPane);
+
         final ChangeListener backgroundImageResizeListener = (obs, oldVal, newVal) -> {
             final Image image = backgroundImageView.getImage();
             if (backgroundImageView.getImage() != null) {
@@ -109,13 +114,14 @@ public class MasterDetailViewController implements Initializable {
                 backgroundImageView.setFitHeight(backgroundDimension.getHeight());
             }
         };
-
         rootPane.widthProperty().addListener(backgroundImageResizeListener);
         rootPane.heightProperty().addListener(backgroundImageResizeListener);
         backgroundImageView.imageProperty().addListener(backgroundImageResizeListener);
 
         addFeatureSupport();
+
         updateDetailArea();
+
     }
 
     private void addFeatureSupport() {
@@ -199,7 +205,7 @@ public class MasterDetailViewController implements Initializable {
 
     private StringBinding substring(final StringProperty property, final IntegerProperty lenght) {
         return Bindings.createStringBinding(() -> {
-            if(property.get() != null && property.get().length() > lenght.get()) {
+            if (property.get() != null && property.get().length() > lenght.get()) {
                 return property.getValue().substring(0, lenght.get()) + "...";
             }
             return property.get();
