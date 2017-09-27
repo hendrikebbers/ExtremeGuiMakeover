@@ -16,6 +16,8 @@ public class Feature {
 
     private final StringProperty name = new SimpleStringProperty();
 
+    private final StringProperty id = new SimpleStringProperty();
+
     private final StringProperty description = new SimpleStringProperty();
 
     private final BooleanProperty active = new SimpleBooleanProperty();
@@ -28,9 +30,22 @@ public class Feature {
 
     private final ObservableList<String> slideUrls = FXCollections.observableArrayList();
 
-    public Feature(final String name, final Property<Boolean> featureState) {
+    public Feature(final String name, final String id, final Property<Boolean> featureState) {
         active.bindBidirectional(featureState);
         setName(name);
+        setId(id);
+    }
+
+    public StringProperty idProperty() {
+        return id;
+    }
+
+    public void setId(String id) {
+        idProperty().set(id);
+    }
+
+    public String getId() {
+        return id.get();
     }
 
     public ObservableList<String> getSlideUrls() {

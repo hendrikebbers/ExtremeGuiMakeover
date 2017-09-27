@@ -25,7 +25,7 @@ public class MovieApp extends Application {
     private Stage currentStage;
 
     private static final Database database = Database.loadDatabase();
-    private static final SlidesDatabase slidesDatabase = SlidesDatabase.loadDatabase();
+    public static final SlidesDatabase slidesDatabase = SlidesDatabase.loadDatabase();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -63,21 +63,21 @@ public class MovieApp extends Application {
         demo1Stage.show();
 
         FeaturesDialog featuresDialog1 = new FeaturesDialog(demo1Stage);
-        featuresDialog1.addFeature(new Feature("CSS - Base", movieView.useCssBaseProperty()));
-        featuresDialog1.addFeature(new Feature("CSS - Details", movieView.useCssAllProperty()));
-        featuresDialog1.addFeature(new Feature("CSS - Custom Fonts", movieView.useCustomFontsProperty()));
-        featuresDialog1.addFeature(new Feature("Filtering", movieView.enableSortingAndFilteringProperty()));
-        featuresDialog1.addFeature(new Feature("Media View - Trailers", movieView.mediaViewTrailersProperty()));
-        featuresDialog1.addFeature(new Feature("Media View - Animations", movieView.animateMediaViewTrailersProperty()));
-        featuresDialog1.addFeature(new Feature("Media View - Background", movieView.showMediaViewBackgroundProperty()));
-        featuresDialog1.addFeature(new Feature("List View", movieView.useListViewProperty()));
-        featuresDialog1.addFeature(new Feature("List View - Cell Factory", movieView.useListViewCellFactoryProperty()));
-        featuresDialog1.addFeature(new Feature("List View - Clipping", movieView.useClippingProperty()));
-        featuresDialog1.addFeature(new Feature("List View - Scroll Bar", movieView.usePrettyListViewProperty()));
-        featuresDialog1.addFeature(new Feature("Poster - Effects", movieView.enableEffectsProperty()));
-        featuresDialog1.addFeature(new Feature("ControlsFX", movieView.useControlsFXProperty()));
-        featuresDialog1.addFeature(new Feature("Drag & Drop", movieView.enableDragAndDropOfPosterProperty()));
-        featuresDialog1.addFeature(new Feature("Drag & Drop - Drag Image", movieView.enableDragAndDropOfPosterWithDragImageProperty()));
+        featuresDialog1.addFeature(new Feature("CSS - Base", "demo1-css-base", movieView.useCssBaseProperty()));
+        featuresDialog1.addFeature(new Feature("CSS - Details", "demo1-css-details", movieView.useCssAllProperty()));
+        featuresDialog1.addFeature(new Feature("CSS - Custom Fonts", "demo1-css-fonts", movieView.useCustomFontsProperty()));
+        featuresDialog1.addFeature(new Feature("Filtering", "demo1-filtering", movieView.enableSortingAndFilteringProperty()));
+        featuresDialog1.addFeature(new Feature("Media View - Trailers", "demo1-media-view-trailers", movieView.mediaViewTrailersProperty()));
+        featuresDialog1.addFeature(new Feature("Media View - Animations", "demo1-media-view-animations", movieView.animateMediaViewTrailersProperty()));
+        featuresDialog1.addFeature(new Feature("Media View - Background", "demo1-media-view-background", movieView.showMediaViewBackgroundProperty()));
+        featuresDialog1.addFeature(new Feature("List View", "demo1-list-view", movieView.useListViewProperty()));
+        featuresDialog1.addFeature(new Feature("List View - Cell Factory", "demo1-list-view-cell-factory", movieView.useListViewCellFactoryProperty()));
+        featuresDialog1.addFeature(new Feature("List View - Clipping", "demo1-list-view-clipping", movieView.useClippingProperty()));
+        featuresDialog1.addFeature(new Feature("List View - Scroll Bar", "demo1-list-view-scroll-bar", movieView.usePrettyListViewProperty()));
+        featuresDialog1.addFeature(new Feature("Poster - Effects", "demo1-poster-effects", movieView.enableEffectsProperty()));
+        featuresDialog1.addFeature(new Feature("ControlsFX", "demo1-controlsfx", movieView.useControlsFXProperty()));
+        featuresDialog1.addFeature(new Feature("Drag & Drop", "demo1-dnd", movieView.enableDragAndDropOfPosterProperty()));
+        featuresDialog1.addFeature(new Feature("Drag & Drop - Drag Image", "demo1-dnd-image", movieView.enableDragAndDropOfPosterWithDragImageProperty()));
         featuresDialog1.show();
     }
 
@@ -149,14 +149,14 @@ public class MovieApp extends Application {
         stage.show();
 
         final FeaturesDialog featuresDialog = new FeaturesDialog(stage);
-        featuresDialog.addFeature(new Feature("CSS", features.useCssProperty()));
-        featuresDialog.addFeature(new Feature("Image Background", features.movieBackgroundProperty()));
-        featuresDialog.addFeature(new Feature("List Animation", features.listAnimationProperty()));
-        featuresDialog.addFeature(new Feature("List Shadow", features.listShadowProperty()));
-        featuresDialog.addFeature(new Feature("List Cache", features.listCacheProperty()));
-        featuresDialog.addFeature(new Feature("Poster Transform", features.posterTransformProperty()));
-        featuresDialog.addFeature(new Feature("Custom Window UI", features.customWindowUIProperty()));
-        featuresDialog.addFeature(new Feature("Custom Window Clip", features.customWindowClipProperty()));
+        featuresDialog.addFeature(new Feature("CSS", "demo2-css", features.useCssProperty()));
+        featuresDialog.addFeature(new Feature("Image Background", "demo2-image-background",features.movieBackgroundProperty()));
+        featuresDialog.addFeature(new Feature("List Animation", "demo2-list-animation",features.listAnimationProperty()));
+        featuresDialog.addFeature(new Feature("List Shadow", "demo2-list-shadow",features.listShadowProperty()));
+        featuresDialog.addFeature(new Feature("List Cache", "demo2-list-cache",features.listCacheProperty()));
+        featuresDialog.addFeature(new Feature("Poster Transform", "demo2-poster-transform",features.posterTransformProperty()));
+        featuresDialog.addFeature(new Feature("Custom Window UI", "demo2-custom-window-ui",features.customWindowUIProperty()));
+        featuresDialog.addFeature(new Feature("Custom Window Clip", "demo2-custom-window-clip", features.customWindowClipProperty()));
         featuresDialog.show();
     }
 

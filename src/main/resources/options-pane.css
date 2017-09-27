@@ -21,6 +21,19 @@
     -fx-alignment: center-left;
 }
 
+.show-slides-button {
+    -fx-background-color: transparent;
+    -fx-padding: 2 0 0 0;
+}
+
+.show-slides-button .glyph-icon {
+    -fx-fill: green;
+}
+
+.show-slides-button .glyph-icon:hover {
+    -fx-fill: red;
+}
+
 #all-button {
     -fx-background-color: red;
     -fx-background-insets: 0;

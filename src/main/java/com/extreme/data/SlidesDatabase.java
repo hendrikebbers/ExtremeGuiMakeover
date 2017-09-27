@@ -11,6 +11,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Optional;
 
 @XmlRootElement(name = "slides-database")
 public class SlidesDatabase {
@@ -22,6 +23,9 @@ public class SlidesDatabase {
         return slideEntries;
     }
 
+    public Optional<SlidesEntry> getSlideEntry(String featureId) {
+        return slideEntries.stream().filter(entry -> entry.getFeatureId().equals(featureId)).findFirst();
+    }
 
     public static SlidesDatabase loadDatabase() {
         SlidesDatabase database = null;

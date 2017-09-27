@@ -10,8 +10,18 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType
 public class SlidesEntry {
 
+    private String title = "Untitled";
     private String nodeId = "#id";
     private String featureId = "css";
+
+    @XmlAttribute
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     @XmlAttribute
     public String getNodeId() {

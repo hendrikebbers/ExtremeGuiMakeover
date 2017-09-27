@@ -1,10 +1,120 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <slides-database>
-    <slide-entry nodeId="#root" featureId="css">
+    <slide-entry nodeId="#root" featureId="demo1-css-base" title="CSS: -fx-base">
         <slide>
-            <name>slides/demo1/css/slide1.png</name>
-            <name>slides/demo1/css/slide2.png</name>
-            <name>slides/demo1/css/slide3.png</name>
+            <name>slides/demo1/css/css1.png</name>
+        </slide>
+        <slide>
+            <name>slides/demo1/css/css2.png</name>
         </slide>
     </slide-entry>
+
+    <slide-entry nodeId="#root" featureId="demo1-css-details">
+    </slide-entry>
+
+    <slide-entry nodeId="#root" featureId="demo1-css-fonts">
+    </slide-entry>
+
+    <slide-entry nodeId="#root" featureId="demo1-filtering">
+    </slide-entry>
+
+    <slide-entry nodeId="#root" featureId="demo1-media-view-trailers">
+        <slide>
+            <name>slides/demo1/css/css1.png</name>
+        </slide>
+    </slide-entry>
+
+    <slide-entry nodeId="#root" featureId="demo1-media-view-animations">
+        <slide>
+            <name>slides/demo1/css/css1.png</name>
+        </slide>
+    </slide-entry>
+
+    <slide-entry nodeId="#root" featureId="demo1-media-view-background">
+    </slide-entry>
+
+    <slide-entry nodeId="#root" featureId="demo1-list-view">
+    </slide-entry>
+
+    <slide-entry nodeId="#root" featureId="demo1-list-view-cell-factory">
+    </slide-entry>
+
+    <slide-entry nodeId="#root" featureId="demo1-list-view-clipping">
+        <slide>
+            <name>slides/demo1/css/css1.png</name>
+        </slide>
+    </slide-entry>
+
+    <slide-entry nodeId="#root" featureId="demo1-list-view-scroll-bar">
+    </slide-entry>
+
+    <slide-entry nodeId="#root" featureId="demo1-poster-effects">
+        <slide>
+            <name>slides/demo1/css/css1.png</name>
+        </slide>
+    </slide-entry>
+
+    <slide-entry nodeId="#root" featureId="demo1-controlsfx">
+    </slide-entry>
+
+    <slide-entry nodeId="#root" featureId="demo1-dnd">
+    </slide-entry>
+
+    <slide-entry nodeId="#root" featureId="demo1-dnd-image">
+    </slide-entry>
+
+
+
+
+    <!-- demo 2 -->
+
+    <slide-entry nodeId="#root" featureId="demo2-css">
+        <slide>
+            <name>slides/demo1/css/css1.png</name>
+        </slide>
+    </slide-entry>
+
+    <slide-entry nodeId="#root" featureId="demo2-image-background">
+        <slide>
+            <name>slides/demo1/css/css1.png</name>
+        </slide>
+    </slide-entry>
+
+    <slide-entry nodeId="#root" featureId="demo2-list-animation">
+        <slide>
+            <name>slides/demo1/css/css1.png</name>
+        </slide>
+    </slide-entry>
+
+    <slide-entry nodeId="#root" featureId="demo2-list-shadow">
+        <slide>
+            <name>slides/demo1/css/css1.png</name>
+        </slide>
+    </slide-entry>
+
+    <slide-entry nodeId="#root" featureId="demo2-list-cache">
+        <slide>
+            <name>slides/demo1/css/css1.png</name>
+        </slide>
+    </slide-entry>
+
+    <slide-entry nodeId="#root" featureId="demo2-poster-transform">
+        <slide>
+            <name>slides/demo1/css/css1.png</name>
+        </slide>
+    </slide-entry>
+
+    <slide-entry nodeId="#root" featureId="demo2-custom-window-ui">
+        <slide>
+            <name>slides/demo1/css/css1.png</name>
+        </slide>
+    </slide-entry>
+
+    <slide-entry nodeId="#root" featureId="demo1-custom-window-clip">
+        <slide>
+            <name>slides/demo1/css/css1.png</name>
+        </slide>
+    </slide-entry>
+
 </slides-database>
+
