@@ -20,13 +20,25 @@ public class SlidesViewer {
     public SlidesViewer() {
         pagination = new Pagination();
 
+        pagination.setOnKeyPressed(evt -> {
+            switch (evt.getCode()) {
+                case LEFT:
+                    pagination.setCurrentPageIndex(Math.max(0, pagination.getCurrentPageIndex() - 1));
+                    break;
+                case RIGHT:
+                case SPACE:
+                    pagination.setCurrentPageIndex(Math.min(pagination.getPageCount() - 1, pagination.getCurrentPageIndex() + 1));
+                    break;
+            }
+        });
+
         Scene scene = new Scene(pagination);
         scene.getStylesheets().add(SlidesViewer.class.getResource("/slides-viewer.css").toExternalForm());
 
         stage = new Stage();
         stage.setScene(scene);
-        stage.setWidth(1024);
-        stage.setHeight(768);
+        stage.setWidth(1000);
+        stage.setHeight(600);
 
         slidesEntry.addListener(it -> updateViewer());
     }
@@ -55,6 +67,7 @@ public class SlidesViewer {
 
             pagination.setPageCount(entry.getSlides().size());
             pagination.setVisible(true);
+            pagination.requestFocus();
         }
     }
 
