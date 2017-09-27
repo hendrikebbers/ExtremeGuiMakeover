@@ -1,12 +1,71 @@
 package com.extreme;
 
+import com.extreme.data.Slide;
 import com.extreme.data.SlidesEntry;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.scene.Scene;
+import javafx.scene.control.Pagination;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 public class SlidesViewer {
 
+    private final static SlidesViewer viewer = new SlidesViewer();
+
+    private Stage stage;
+    private Pagination pagination;
+
+    public SlidesViewer() {
+        pagination = new Pagination();
+
+        Scene scene = new Scene(pagination);
+        scene.getStylesheets().add(SlidesViewer.class.getResource("/slides-viewer.css").toExternalForm());
+
+        stage = new Stage();
+        stage.setScene(scene);
+        stage.setWidth(1024);
+        stage.setHeight(768);
+
+        slidesEntry.addListener(it -> updateViewer());
+    }
+
+    private void updateViewer() {
+        SlidesEntry entry = getSlidesEntry();
+        if (entry == null) {
+            stage.hide();
+        } else {
+
+            stage.setTitle(entry.getTitle());
+
+            pagination.setPageFactory(page -> {
+                Slide slide = entry.getSlides().get(page);
+                Image image = new Image(SlidesViewer.class.getResource("/" + slide.getName()).toExternalForm());
+                ImageView imageView = new ImageView(image);
+                imageView.fitWidthProperty().bind(pagination.widthProperty());
+                imageView.fitHeightProperty().bind(pagination.heightProperty());
+                imageView.setPreserveRatio(true);
+                return imageView;
+            });
+
+            pagination.setPageCount(entry.getSlides().size());
+
+            stage.show();
+        }
+    }
+
+    private ObjectProperty<SlidesEntry> slidesEntry = new SimpleObjectProperty<>();
+
+    public SlidesEntry getSlidesEntry() {
+        return slidesEntry.get();
+    }
+
+    public void setSlidesEntry(SlidesEntry slidesEntry) {
+        this.slidesEntry.set(slidesEntry);
+    }
+
     public static void showSlides(SlidesEntry entry) {
-        System.out.println("title: " + entry.getTitle());
-        entry.getSlides().forEach(slide -> System.out.println("   slide: " + slide.getName()));
-        System.out.println("-------");
+        viewer.setSlidesEntry(entry);
     }
 }
