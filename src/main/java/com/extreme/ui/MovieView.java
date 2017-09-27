@@ -19,7 +19,9 @@ import java.util.function.Predicate;
  */
 public class MovieView extends Control {
 
-    private final String optionalStylesheet = MovieView.class.getResource("/optional.css").toExternalForm();
+    private final String optionalBaseStylesheet = MovieView.class.getResource("/optional-fxbase.css").toExternalForm();
+
+    private final String optionalAllStylesheet = MovieView.class.getResource("/optional-all.css").toExternalForm();
 
     private final String fontsStylesheet = MovieView.class.getResource("/fonts.css").toExternalForm();
 
@@ -28,7 +30,8 @@ public class MovieView extends Control {
     public MovieView() {
         getStyleClass().add("movie-view");
 
-        useCss.addListener(it -> updateOptionalStylesheet());
+        useCssBase.addListener(it -> updateOptionalBaseStylesheet());
+        useCssAll.addListener(it -> updateOptionalAllStylesheet());
         useCustomFonts.addListener(it -> updateFontStylesheet());
         usePrettyListView.addListener(it -> updateListViewStylesheet());
 
@@ -78,7 +81,9 @@ public class MovieView extends Control {
 
     private final BooleanProperty enableSortingAndFiltering = new SimpleBooleanProperty();
 
-    private final BooleanProperty useCss = new SimpleBooleanProperty();
+    private final BooleanProperty useCssBase = new SimpleBooleanProperty();
+
+    private final BooleanProperty useCssAll = new SimpleBooleanProperty();
 
     private final BooleanProperty useCustomFonts = new SimpleBooleanProperty();
 
@@ -101,6 +106,18 @@ public class MovieView extends Control {
     private final BooleanProperty enableEffects = new SimpleBooleanProperty();
 
     private final BooleanProperty useClipping = new SimpleBooleanProperty();
+
+    public boolean isUseCssAll() {
+        return useCssAll.get();
+    }
+
+    public BooleanProperty useCssAllProperty() {
+        return useCssAll;
+    }
+
+    public void setUseCssAll(boolean useCssAll) {
+        this.useCssAll.set(useCssAll);
+    }
 
     public boolean isUseClipping() {
         return useClipping.get();
@@ -127,16 +144,16 @@ public class MovieView extends Control {
         this.enableSortingAndFiltering.set(enableSortingAndFiltering);
     }
 
-    public boolean isUseCss() {
-        return useCss.get();
+    public boolean isUseCssBase() {
+        return useCssBase.get();
     }
 
-    public BooleanProperty useCssProperty() {
-        return useCss;
+    public BooleanProperty useCssBaseProperty() {
+        return useCssBase;
     }
 
-    public void setUseCss(boolean useCss) {
-        this.useCss.set(useCss);
+    public void setUseCssBase(boolean useCssBase) {
+        this.useCssBase.set(useCssBase);
     }
 
     public boolean isMediaViewTrailers() {
@@ -285,13 +302,25 @@ public class MovieView extends Control {
         this.usePrettyListView.set(usePrettyListView);
     }
 
-    private void updateOptionalStylesheet() {
-        if (isUseCss()) {
-            if (!getStylesheets().contains(optionalStylesheet)) {
-                getStylesheets().add(optionalStylesheet);
+    private void updateOptionalBaseStylesheet() {
+        if (isUseCssBase()) {
+            if (!getStylesheets().contains(optionalBaseStylesheet)) {
+                getStylesheets().add(optionalBaseStylesheet);
             }
         } else {
-            getStylesheets().remove(optionalStylesheet);
+            getStylesheets().remove(optionalBaseStylesheet);
+        }
+
+        applyCss();
+    }
+
+    private void updateOptionalAllStylesheet() {
+        if (isUseCssAll()) {
+            if (!getStylesheets().contains(optionalAllStylesheet)) {
+                getStylesheets().add(optionalAllStylesheet);
+            }
+        } else {
+            getStylesheets().remove(optionalAllStylesheet);
         }
 
         applyCss();

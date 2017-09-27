@@ -1,6 +1,7 @@
 package com.extreme;
 
 import com.extreme.data.Database;
+import com.extreme.data.SlidesDatabase;
 import com.extreme.feature.Feature;
 import com.extreme.feature.FeaturesDialog;
 import com.extreme.ui.MovieView;
@@ -24,7 +25,7 @@ public class MovieApp extends Application {
     private Stage currentStage;
 
     private static final Database database = Database.loadDatabase();
-    //private static final SlidesDatabase slidesDatabase = SlidesDatabase.loadDatabase();
+    private static final SlidesDatabase slidesDatabase = SlidesDatabase.loadDatabase();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -41,6 +42,7 @@ public class MovieApp extends Application {
 
         Scene scene = new Scene(hBox);
         scene.getStylesheets().add(MovieApp.class.getResource("/chooser.css").toExternalForm());
+        scene.getStylesheets().add(MovieApp.class.getResource("/fonts.css").toExternalForm());
 
         primaryStage.setTitle("Extreme GUI Makeover");
         primaryStage.setScene(scene);
@@ -61,12 +63,13 @@ public class MovieApp extends Application {
         demo1Stage.show();
 
         FeaturesDialog featuresDialog1 = new FeaturesDialog(demo1Stage);
-        featuresDialog1.addFeature(new Feature("CSS", movieView.useCssProperty()));
+        featuresDialog1.addFeature(new Feature("CSS - Base", movieView.useCssBaseProperty()));
+        featuresDialog1.addFeature(new Feature("CSS - Details", movieView.useCssAllProperty()));
         featuresDialog1.addFeature(new Feature("CSS - Custom Fonts", movieView.useCustomFontsProperty()));
         featuresDialog1.addFeature(new Feature("Filtering", movieView.enableSortingAndFilteringProperty()));
         featuresDialog1.addFeature(new Feature("Media View - Trailers", movieView.mediaViewTrailersProperty()));
-        featuresDialog1.addFeature(new Feature("Media View - Background", movieView.showMediaViewBackgroundProperty()));
         featuresDialog1.addFeature(new Feature("Media View - Animations", movieView.animateMediaViewTrailersProperty()));
+        featuresDialog1.addFeature(new Feature("Media View - Background", movieView.showMediaViewBackgroundProperty()));
         featuresDialog1.addFeature(new Feature("List View", movieView.useListViewProperty()));
         featuresDialog1.addFeature(new Feature("List View - Cell Factory", movieView.useListViewCellFactoryProperty()));
         featuresDialog1.addFeature(new Feature("List View - Clipping", movieView.useClippingProperty()));

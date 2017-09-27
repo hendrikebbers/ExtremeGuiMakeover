@@ -17,6 +17,7 @@
 }
 
 .synopsis-container {
+    -fx-background-color: -fx-base;
     -fx-border-color: gray;
     -fx-padding: 10;
 }

@@ -34,6 +34,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -298,6 +299,12 @@ public class MovieViewSkin extends SkinBase<MovieView> {
         MultipleSelectionModel<Movie> listViewSelectionModel = listView.getSelectionModel();
         listViewSelectionModel.selectedItemProperty().addListener(it -> getSkinnable().setSelectedMovie(listViewSelectionModel.getSelectedItem()));
 
+        listView.setOnMouseClicked(evt -> {
+            if (evt.getButton() == MouseButton.PRIMARY && evt.getClickCount() == 2) {
+                showTrailer();
+            }
+        });
+
         Callback<ListView<Movie>, ListCell<Movie>> defaultCellFactory = listView.getCellFactory();
 
         getSkinnable().useListViewCellFactoryProperty().addListener(it -> {
@@ -424,7 +431,7 @@ public class MovieViewSkin extends SkinBase<MovieView> {
     private void stopMediaPlayer() {
         MediaPlayer mediaPlayer = mediaView.getMediaPlayer();
         if (mediaPlayer != null) {
-                mediaPlayer.stop();
+            mediaPlayer.pause();
         }
     }
 

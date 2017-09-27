@@ -2,4 +2,18 @@
 .demo2 {
     -fx-pref-width: 160;
     -fx-pref-height: 90;
+    -fx-graphic: url("logo-small.png");
+    -fx-content-display: top;
+    -fx-background-color: white;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+}
+
+.demo1 {
+    -fx-border-color: transparent black transparent transparent;
+}
+
+.demo1:hover,
+.demo2:hover {
+    -fx-background-color: lightsteelblue;
 }

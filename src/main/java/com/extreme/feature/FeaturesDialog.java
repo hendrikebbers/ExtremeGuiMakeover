@@ -16,7 +16,7 @@ public class FeaturesDialog extends Stage {
         setTitle("Makeover Tools");
         setResizable(false);
         initStyle(StageStyle.UTILITY);
-        setOnCloseRequest(evt -> evt.consume());
+        setOnCloseRequest(evt -> parent.hide());
 
         Scene optionsScene = new Scene(featuresPane);
         setScene(optionsScene);
