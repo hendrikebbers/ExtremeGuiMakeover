@@ -58,6 +58,7 @@ public class SlidesViewer {
 
     public void showSlides() {
         stage.show();
+        stage.toFront();
     }
 
     private void updateViewer() {

@@ -243,7 +243,7 @@ public class MovieViewSkin extends SkinBase<MovieView> {
                     try {
                         final String posterFileName = getSkinnable().getSelectedMovie().getPosterFileName();
 
-                        File file = new File(MovieView.class.getResource("/" + posterFileName).toURI());
+                        File file = new File(MovieView.class.getResource("/com/extreme/data/" + posterFileName).toURI());
                         files.add(file);
 
                         ClipboardContent content = new ClipboardContent();
