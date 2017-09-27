@@ -329,6 +329,9 @@ public class MovieViewSkin extends SkinBase<MovieView> {
         getSkinnable().useListViewProperty().addListener(it -> {
             if (getSkinnable().isUseListView()) {
                 flipPanel.flipToBack();
+                if (getSkinnable().isUseListViewCellFactory()) {
+                    listView.setCellFactory(view -> new MovieCell(getSkinnable()));
+                }
             } else {
                 flipPanel.flipToFront();
             }
