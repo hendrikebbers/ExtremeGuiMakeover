@@ -36,7 +36,7 @@ public class SlidesViewer {
 
         stackPane = new StackPane();
 
-        titleImageView = new ImageView(SlidesViewer.class.getResource("/title.png").toExternalForm());
+        titleImageView = new ImageView(SlidesViewer.class.getResource("/titleBW.png").toExternalForm());
         titleImageView.fitWidthProperty().bind(stackPane.widthProperty());
         titleImageView.fitHeightProperty().bind(stackPane.heightProperty());
         titleImageView.setPreserveRatio(true);

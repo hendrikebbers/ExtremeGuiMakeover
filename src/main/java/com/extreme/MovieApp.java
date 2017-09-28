@@ -11,7 +11,8 @@ import javafx.scene.Parent;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -29,8 +30,14 @@ public class MovieApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Button demo1Button = new Button("Demo 1");
-        Button demo2Button = new Button("Demo 2");
+        Button demo1Button = new Button("Dirk");
+        Button demo2Button = new Button("Hendrik");
+
+        VBox.setVgrow(demo1Button, Priority.ALWAYS);
+        VBox.setVgrow(demo2Button, Priority.ALWAYS);
+
+        demo1Button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        demo2Button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 
         demo1Button.getStyleClass().add("demo1");
         demo2Button.getStyleClass().add("demo2");
@@ -38,15 +45,17 @@ public class MovieApp extends Application {
         demo1Button.setOnAction(evt -> showDemo1());
         demo2Button.setOnAction(evt -> showDemo2());
 
-        HBox hBox = new HBox(demo1Button, demo2Button);
+        VBox vBox = new VBox(demo1Button, demo2Button);
 
-        Scene scene = new Scene(hBox);
+        Scene scene = new Scene(vBox);
         scene.getStylesheets().add(MovieApp.class.getResource("/chooser.css").toExternalForm());
         scene.getStylesheets().add(MovieApp.class.getResource("/fonts.css").toExternalForm());
 
-        primaryStage.setTitle("Extreme GUI Makeover");
+        primaryStage.initStyle(StageStyle.UTILITY);
+        primaryStage.setTitle("Launcher");
         primaryStage.setScene(scene);
-        primaryStage.sizeToScene();
+        primaryStage.setHeight(300);
+        primaryStage.setWidth(150);
         primaryStage.centerOnScreen();
         primaryStage.show();
     }
