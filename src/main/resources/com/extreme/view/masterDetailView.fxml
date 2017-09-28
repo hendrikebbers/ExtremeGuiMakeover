@@ -46,24 +46,30 @@
                                     <Insets top="8.0" />
                                  </padding>
                               </TextFlow>
-                              <StackPane maxWidth="1.7976931348623157E308">
+                              <HBox alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" spacing="4.0">
                                  <children>
-                                    <ImageView fitWidth="200.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
-                                       <image>
-                                          <Image url="@../../../45stars.png" />
-                                       </image>
-                                       <StackPane.margin>
-                                          <Insets top="12.0" />
-                                       </StackPane.margin>
-                                    </ImageView>
+                                    <FontAwesomeIconView glyphName="STAR" styleClass="rating-star" />
+                                    <FontAwesomeIconView glyphName="STAR" styleClass="rating-star" />
+                                    <FontAwesomeIconView glyphName="STAR" styleClass="rating-star" />
+                                    <FontAwesomeIconView glyphName="STAR" styleClass="rating-star" />
+                                    <FontAwesomeIconView glyphName="STAR" styleClass="rating-star" />
                                  </children>
                                  <padding>
-                                    <Insets top="8.0" />
+                                    <Insets top="12.0" />
                                  </padding>
-                              </StackPane>
+                              </HBox>
                               <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Button fx:id="watchTrailerButton" alignment="CENTER" mnemonicParsing="false" styleClass="watch-trailer-button" text="Watch trailer" StackPane.alignment="CENTER" />
+                                    <Button fx:id="watchTrailerButton" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="8.0" mnemonicParsing="false" styleClass="watch-trailer-button" text="Watch trailer" StackPane.alignment="CENTER">
+                                       <graphic>
+                                          <FontAwesomeIconView glyphName="PLAY" styleClass="rating-star" />
+                                       </graphic>
+                                       <padding>
+                                          <Insets bottom="4.0" left="8.0" right="8.0" top="4.0" />
+                                       </padding>
+                                       <StackPane.margin>
+                                          <Insets top="64.0" />
+                                       </StackPane.margin></Button>
                                  </children>
                                  <padding>
                                     <Insets top="8.0" />
