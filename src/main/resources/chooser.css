@@ -1,28 +1,28 @@
-.demo1,
-.demo2 {
-    -fx-graphic: url("logo-small.png");
-    -fx-content-display: top;
+.root {
     -fx-background-color: black;
-    -fx-background-radius: 0;
-    -fx-font-weight: bold;
-    -fx-text-fill: lightgray;
 }
 
 .demo1 {
-    -fx-border-color: transparent black transparent transparent;
-    -fx-graphic: url("dirk.jpg");
+    -fx-image: url("dirk.png");
+}
+
+.demo1:hover {
+    -fx-image: url("dirk-hover.png");
 }
 
 .demo2 {
-    -fx-graphic: url("hendrik.jpg");
+    -fx-image: url("hendrik.png");
+}
+
+.demo2:hover {
+    -fx-image: url("hendrik-hover.png");
 }
 
 .demo1:hover,
 .demo2:hover {
-    -fx-background-color: rgb(50, 50, 50);
 }
 
 .demo1:pressed,
 .demo2:pressed {
-    -fx-background-color: rgb(20, 20, 20);
+    -fx-opacity: .5;
 }

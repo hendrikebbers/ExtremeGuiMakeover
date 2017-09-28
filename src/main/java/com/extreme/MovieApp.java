@@ -10,9 +10,9 @@ import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -30,33 +30,38 @@ public class MovieApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Button demo1Button = new Button("Dirk");
-        Button demo2Button = new Button("Hendrik");
+        ImageView demo1Button = new ImageView();
+        ImageView demo2Button = new ImageView();
 
-        VBox.setVgrow(demo1Button, Priority.ALWAYS);
-        VBox.setVgrow(demo2Button, Priority.ALWAYS);
+        demo1Button.setFitWidth(200);
+        demo2Button.setFitWidth(200);
 
-        demo1Button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-        demo2Button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        demo1Button.setPreserveRatio(true);
+        demo2Button.setPreserveRatio(true);
+
+        HBox.setHgrow(demo1Button, Priority.ALWAYS);
+        HBox.setHgrow(demo2Button, Priority.ALWAYS);
+
 
         demo1Button.getStyleClass().add("demo1");
         demo2Button.getStyleClass().add("demo2");
 
-        demo1Button.setOnAction(evt -> showDemo1());
-        demo2Button.setOnAction(evt -> showDemo2());
+        demo1Button.setOnMouseClicked(evt -> showDemo1());
+        demo2Button.setOnMouseClicked(evt -> showDemo2());
 
-        VBox vBox = new VBox(demo1Button, demo2Button);
+        HBox container = new HBox(demo1Button, demo2Button);
 
-        Scene scene = new Scene(vBox);
+        Scene scene = new Scene(container);
         scene.getStylesheets().add(MovieApp.class.getResource("/chooser.css").toExternalForm());
         scene.getStylesheets().add(MovieApp.class.getResource("/fonts.css").toExternalForm());
 
+        primaryStage.setResizable(false);
         primaryStage.initStyle(StageStyle.UTILITY);
-        primaryStage.setTitle("Launcher");
+        primaryStage.setTitle("Extreme GUI Makeover");
         primaryStage.setScene(scene);
-        primaryStage.setHeight(300);
-        primaryStage.setWidth(150);
-        primaryStage.centerOnScreen();
+        primaryStage.sizeToScene();
+        primaryStage.setX(50);
+        primaryStage.setY(100);
         primaryStage.show();
     }
 

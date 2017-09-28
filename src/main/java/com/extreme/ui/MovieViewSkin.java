@@ -192,6 +192,7 @@ public class MovieViewSkin extends SkinBase<MovieView> {
                 Reflection reflection = new Reflection();
                 reflection.setFraction(.3);
                 reflection.setBottomOpacity(0);
+
                 posterView.setEffect(reflection);
             } else {
                 posterView.setEffect(null);
