@@ -89,6 +89,8 @@ public class MovieView extends Control {
 
     private final BooleanProperty mediaViewTrailers = new SimpleBooleanProperty();
 
+    private final BooleanProperty mediaViewControls = new SimpleBooleanProperty();
+
     private final BooleanProperty animateMediaViewTrailers = new SimpleBooleanProperty();
 
     private final BooleanProperty showMediaViewBackground = new SimpleBooleanProperty();
@@ -106,6 +108,18 @@ public class MovieView extends Control {
     private final BooleanProperty enableEffects = new SimpleBooleanProperty();
 
     private final BooleanProperty useClipping = new SimpleBooleanProperty();
+
+    public boolean isMediaViewControls() {
+        return mediaViewControls.get();
+    }
+
+    public BooleanProperty mediaViewControlsProperty() {
+        return mediaViewControls;
+    }
+
+    public void setMediaViewControls(boolean mediaViewControls) {
+        this.mediaViewControls.set(mediaViewControls);
+    }
 
     public boolean isUseCssAll() {
         return useCssAll.get();

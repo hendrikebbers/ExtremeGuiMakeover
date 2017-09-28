@@ -1,19 +1,28 @@
 .demo1,
 .demo2 {
-    -fx-pref-width: 160;
-    -fx-pref-height: 90;
     -fx-graphic: url("logo-small.png");
     -fx-content-display: top;
-    -fx-background-color: white;
+    -fx-background-color: black;
     -fx-background-radius: 0;
     -fx-font-weight: bold;
+    -fx-text-fill: lightgray;
 }
 
 .demo1 {
     -fx-border-color: transparent black transparent transparent;
+    -fx-graphic: url("dirk.jpg");
+}
+
+.demo2 {
+    -fx-graphic: url("hendrik.jpg");
 }
 
 .demo1:hover,
 .demo2:hover {
-    -fx-background-color: lightsteelblue;
+    -fx-background-color: rgb(50, 50, 50);
+}
+
+.demo1:pressed,
+.demo2:pressed {
+    -fx-background-color: rgb(20, 20, 20);
 }
