@@ -193,7 +193,7 @@ public class Movie {
     }
 
     public final Media loadTrailer() {
-        return new Media(Database.class.getResource(getTrailer()).toExternalForm());
+        return new Media(Database.class.getResource("/trailers/" + getTrailer()).toExternalForm());
     }
 
 
