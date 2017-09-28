@@ -27,6 +27,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -34,6 +36,8 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
+
+import static javafx.scene.layout.Region.USE_PREF_SIZE;
 
 public class MasterDetailViewController implements Initializable {
 
@@ -139,15 +143,32 @@ public class MasterDetailViewController implements Initializable {
         mediaView.fitWidthProperty().bind(rootPane.widthProperty().subtract(64.0));
 
         mediaStateIcon = new AnimatedIcon();
+        mediaStateIcon.setOpacity(0.6);
         mediaStateIcon.setScaleX(4.0);
         mediaStateIcon.setScaleY(4.0);
         mediaStateIcon.setMouseTransparent(true);
         mediaStateIcon.toPause();
-        mediaPane.getChildren().add(mediaStateIcon);
+
+        Circle circle = new Circle();
+        circle.setMouseTransparent(true);
+        circle.setRadius(76);
+        circle.setStroke(Color.ORANGE);
+        circle.setStrokeWidth(8);
+        circle.setOpacity(0.6);
+
+        StackPane mediaControl = new StackPane(circle, mediaStateIcon);
+        mediaControl.setMouseTransparent(true);
+        mediaControl.setMinWidth(USE_PREF_SIZE);
+        mediaControl.setMinHeight(USE_PREF_SIZE);
+        mediaControl.setMaxWidth(USE_PREF_SIZE);
+        mediaControl.setMaxHeight(USE_PREF_SIZE);
+        mediaControl.setVisible(false);
+
+        mediaPane.getChildren().addAll(mediaControl);
 
         //TODO: Animation
-        mediaView.setOnMouseEntered(e -> mediaStateIcon.setVisible(true));
-        mediaView.setOnMouseExited(e -> mediaStateIcon.setVisible(false));
+        mediaView.setOnMouseEntered(e -> mediaControl.setVisible(true));
+        mediaView.setOnMouseExited(e -> mediaControl.setVisible(false));
     }
 
     private void playTrailer() {
