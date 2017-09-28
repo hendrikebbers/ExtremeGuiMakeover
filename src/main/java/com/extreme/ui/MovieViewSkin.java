@@ -56,7 +56,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import java.awt.*;
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
@@ -70,12 +70,16 @@ import java.util.List;
  */
 public class MovieViewSkin extends SkinBase<MovieView> {
 
+    public static final int WIDTH = 800;
+    public static final int HEIGHT = 450;
     private GridPane container = new GridPane();
 
     private Button showTrailerButton = new Button();
 
     private Database database;
     private MediaView mediaView;
+    private MediaControl mediaControl;
+    private StackPane mediaViewContainer;
     private GlassPane glassPane;
 
     public MovieViewSkin(MovieView view) {
@@ -344,8 +348,8 @@ public class MovieViewSkin extends SkinBase<MovieView> {
     private void addTrailerView() {
         mediaView = new MediaView();
         mediaView.setEffect(new DropShadow());
-        mediaView.setFitWidth(800);
-        mediaView.setFitHeight(450);
+        mediaView.setFitWidth(WIDTH);
+        mediaView.setFitHeight(HEIGHT);
         mediaView.setOnMouseClicked(evt -> {
             MediaPlayer player = mediaView.getMediaPlayer();
             if (player != null) {
@@ -357,8 +361,19 @@ public class MovieViewSkin extends SkinBase<MovieView> {
             }
         });
 
-        mediaView.setManaged(false);
-        mediaView.setLayoutY(-mediaView.getFitHeight());
+        mediaControl = new MediaControl();
+        mediaControl.visibleProperty().bind(getSkinnable().mediaViewControlsProperty());
+        mediaControl.mediaPlayerProperty().bind(mediaView.mediaPlayerProperty());
+        StackPane.setAlignment(mediaControl, Pos.BOTTOM_CENTER);
+
+        mediaViewContainer = new StackPane(mediaView, mediaControl);
+        mediaViewContainer.setLayoutY(-mediaView.getFitHeight());
+
+        mediaViewContainer.setPrefWidth(800);
+        mediaViewContainer.setPrefHeight(450);
+        mediaViewContainer.setMaxWidth(800);
+        mediaViewContainer.setMaxHeight(450);
+        mediaViewContainer.setVisible(false);
 
         getSkinnable().selectedTrailerProperty().addListener(it -> {
             final String selectedTrailer = getSkinnable().getSelectedTrailer();
@@ -372,26 +387,26 @@ public class MovieViewSkin extends SkinBase<MovieView> {
                     mediaPlayer.setOnStopped(() -> mediaPlayer.dispose());
 
                     mediaView.setMediaPlayer(mediaPlayer);
-                    mediaView.setVisible(true);
+                    mediaViewContainer.setVisible(true);
 
                     if (getSkinnable().isAnimateMediaViewTrailers()) {
 
-                        mediaView.setManaged(false);
-                        mediaView.setLayoutY(-mediaView.getFitHeight());
-                        mediaView.setLayoutX((getSkinnable().getWidth() - mediaView.getFitWidth()) / 2);
-                        mediaView.setOpacity(0);
+                        mediaViewContainer.setManaged(false);
+                        mediaViewContainer.setLayoutY(-mediaView.getFitHeight());
+                        mediaViewContainer.setLayoutX((getSkinnable().getWidth() - mediaView.getFitWidth()) / 2);
+                        mediaViewContainer.setOpacity(0);
 
-                        KeyValue layoutYValue = new KeyValue(mediaView.layoutYProperty(), (getSkinnable().getHeight() - mediaView.getFitHeight()) / 2, Interpolator.EASE_OUT);
-                        KeyValue opacityValue = new KeyValue(mediaView.opacityProperty(), 1, Interpolator.EASE_OUT);
+                        KeyValue layoutYValue = new KeyValue(mediaViewContainer.layoutYProperty(), (getSkinnable().getHeight() - mediaView.getFitHeight()) / 2, Interpolator.EASE_OUT);
+                        KeyValue opacityValue = new KeyValue(mediaViewContainer.opacityProperty(), 1, Interpolator.EASE_OUT);
 
                         KeyFrame keyFrame = new KeyFrame(Duration.millis(500), layoutYValue, opacityValue);
                         Timeline timeline = new Timeline(keyFrame);
-                        timeline.setOnFinished(evt -> mediaView.setManaged(true));
+                        timeline.setOnFinished(evt -> mediaViewContainer.setManaged(true));
                         timeline.play();
 
                     } else {
-                        mediaView.setOpacity(1);
-                        mediaView.setManaged(true);
+                        mediaViewContainer.setOpacity(1);
+                        mediaViewContainer.setManaged(true);
                     }
                 } else {
 
@@ -408,10 +423,10 @@ public class MovieViewSkin extends SkinBase<MovieView> {
 
                 if (getSkinnable().isAnimateMediaViewTrailers()) {
 
-                    mediaView.setManaged(false);
+                    mediaViewContainer.setManaged(false);
 
-                    KeyValue layoutYValue = new KeyValue(mediaView.layoutYProperty(), -mediaView.getFitHeight(), Interpolator.EASE_IN);
-                    KeyValue opacityValue = new KeyValue(mediaView.opacityProperty(), 0, Interpolator.EASE_IN);
+                    KeyValue layoutYValue = new KeyValue(mediaViewContainer.layoutYProperty(), -mediaView.getFitHeight(), Interpolator.EASE_IN);
+                    KeyValue opacityValue = new KeyValue(mediaViewContainer.opacityProperty(), 0, Interpolator.EASE_IN);
                     KeyValue volumeValue = new KeyValue(mediaView.getMediaPlayer().volumeProperty(), 0, Interpolator.LINEAR);
 
                     KeyFrame keyFrame = new KeyFrame(Duration.millis(500), layoutYValue, opacityValue, volumeValue);
@@ -421,14 +436,14 @@ public class MovieViewSkin extends SkinBase<MovieView> {
 
                 } else {
                     stopMediaPlayer();
-                    mediaView.setVisible(false);
-                    mediaView.setManaged(false);
-                    mediaView.setLayoutY(-mediaView.getFitHeight());
+                    mediaViewContainer.setVisible(false);
+                    mediaViewContainer.setManaged(false);
+                    mediaViewContainer.setLayoutY(-mediaView.getFitHeight());
                 }
             }
         });
 
-        getChildren().add(mediaView);
+        getChildren().add(mediaViewContainer);
     }
 
     private void stopMediaPlayer() {

@@ -77,6 +77,7 @@ public class MovieApp extends Application {
         featuresDialog1.addFeature(new Feature("CSS - Custom Fonts", "demo1-css-fonts", movieView.useCustomFontsProperty()));
         featuresDialog1.addFeature(new Feature("Filtering", "demo1-filtering", movieView.enableSortingAndFilteringProperty()));
         featuresDialog1.addFeature(new Feature("Media View - Trailers", "demo1-media-view-trailers", movieView.mediaViewTrailersProperty()));
+        featuresDialog1.addFeature(new Feature("Media View - Controls", "demo1-media-view-controls", movieView.mediaViewControlsProperty()));
         featuresDialog1.addFeature(new Feature("Media View - Animations", "demo1-media-view-animations", movieView.animateMediaViewTrailersProperty()));
         featuresDialog1.addFeature(new Feature("Media View - Background", "demo1-media-view-background", movieView.showMediaViewBackgroundProperty()));
         featuresDialog1.addFeature(new Feature("List View", "demo1-list-view", movieView.useListViewProperty()));

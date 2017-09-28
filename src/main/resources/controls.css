@@ -1,0 +1,25 @@
+.media-controls {
+    -fx-padding: 0 110 10 110;
+    -fx-background-color: rgba(255, 255, 255,.8);
+    -fx-background-insets: 0 100 10 100;
+    -fx-background-radius: 4;
+    -fx-max-height: 30;
+}
+
+.media-controls .button {
+    -fx-background-color: transparent;
+    -fx-text-fill: gray;
+    -fx-font-style: bold;
+}
+
+.media-controls .slider .track {
+    -fx-background-color: gray;
+}
+
+.media-controls .slider .thumb {
+    -fx-background-color: steelblue;
+}
+
+.media-controls .label {
+    -fx-text-fill: gray;
+}
