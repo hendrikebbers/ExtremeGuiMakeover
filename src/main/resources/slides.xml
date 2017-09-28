@@ -15,10 +15,10 @@
         </slide>
     </slide-entry>
 
-    <slide-entry nodeId="#root" featureId="demo1-css-details">
+    <slide-entry nodeId="#root" featureId="demo1-css-details" title="CSS: Details">
     </slide-entry>
 
-    <slide-entry nodeId="#root" featureId="demo1-css-fonts">
+    <slide-entry nodeId="#root" featureId="demo1-css-fonts" title="CSS: Fonts">
         <slide>
             <name>slides/JavaOne 2017 - Extreme GUI Makeover.006.png</name>
         </slide>
@@ -27,7 +27,7 @@
         </slide>
     </slide-entry>
 
-    <slide-entry nodeId="#root" featureId="demo1-filtering">
+    <slide-entry nodeId="#root" featureId="demo1-filtering" title="Filtering">
         <slide>
             <name>slides/JavaOne 2017 - Extreme GUI Makeover.008.png</name>
         </slide>
@@ -36,13 +36,13 @@
         </slide>
     </slide-entry>
 
-    <slide-entry nodeId="#root" featureId="demo1-media-view-trailers">
+    <slide-entry nodeId="#root" featureId="demo1-media-view-trailers" title="Media View">
         <slide>
             <name>slides/JavaOne 2017 - Extreme GUI Makeover.010.png</name>
         </slide>
     </slide-entry>
 
-    <slide-entry nodeId="#root" featureId="demo1-media-view-animations">
+    <slide-entry nodeId="#root" featureId="demo1-media-view-animations" title="Media View: Animations">
         <slide>
             <name>slides/JavaOne 2017 - Extreme GUI Makeover.011.png</name>
         </slide>
@@ -57,13 +57,13 @@
         </slide>
     </slide-entry>
 
-    <slide-entry nodeId="#root" featureId="demo1-media-view-background">
+    <slide-entry nodeId="#root" featureId="demo1-media-view-background" title="">
     </slide-entry>
 
-    <slide-entry nodeId="#root" featureId="demo1-list-view">
+    <slide-entry nodeId="#root" featureId="demo1-list-view" title="">
     </slide-entry>
 
-    <slide-entry nodeId="#root" featureId="demo1-list-view-cell-factory">
+    <slide-entry nodeId="#root" featureId="demo1-list-view-cell-factory" title="List View: Cell Factory">
         <slide>
             <name>slides/JavaOne 2017 - Extreme GUI Makeover.015.png</name>
         </slide>
@@ -72,13 +72,13 @@
         </slide>
     </slide-entry>
 
-    <slide-entry nodeId="#root" featureId="demo1-list-view-clipping">
+    <slide-entry nodeId="#root" featureId="demo1-list-view-clipping" title="List View: Clipping">
         <slide>
             <name>slides/JavaOne 2017 - Extreme GUI Makeover.017.png</name>
         </slide>
     </slide-entry>
 
-    <slide-entry nodeId="#root" featureId="demo1-list-view-scroll-bar">
+    <slide-entry nodeId="#root" featureId="demo1-list-view-scroll-bar" title="List View: Scroll Bar">
         <slide>
             <name>slides/JavaOne 2017 - Extreme GUI Makeover.018.png</name>
         </slide>
@@ -90,7 +90,7 @@
         </slide>
     </slide-entry>
 
-    <slide-entry nodeId="#root" featureId="demo1-poster-effects">
+    <slide-entry nodeId="#root" featureId="demo1-poster-effects" title="Effects">
         <slide>
             <name>slides/JavaOne 2017 - Extreme GUI Makeover.021.png</name>
         </slide>
@@ -99,7 +99,7 @@
         </slide>
     </slide-entry>
 
-    <slide-entry nodeId="#root" featureId="demo1-controlsfx">
+    <slide-entry nodeId="#root" featureId="demo1-controlsfx" title="ControlsFX">
         <slide>
             <name>slides/JavaOne 2017 - Extreme GUI Makeover.023.png</name>
         </slide>
@@ -111,10 +111,10 @@
         </slide>
     </slide-entry>
 
-    <slide-entry nodeId="#root" featureId="demo1-dnd">
+    <slide-entry nodeId="#root" featureId="demo1-dnd" title="Drag and Drop">
     </slide-entry>
 
-    <slide-entry nodeId="#root" featureId="demo1-dnd-image">
+    <slide-entry nodeId="#root" featureId="demo1-dnd-image" title="Drag Image">
         <slide>
             <name>slides/JavaOne 2017 - Extreme GUI Makeover.026.png</name>
         </slide>
