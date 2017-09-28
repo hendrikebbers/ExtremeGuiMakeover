@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.media.*?>
 <?import de.jensd.fx.glyphs.fontawesome.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
@@ -105,5 +106,17 @@
             <Insets bottom="8.0" left="8.0" right="12.0" top="6.0" />
          </padding>
       </HBox>
+      <StackPane fx:id="mediaPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" styleClass="media-player-glaspane" visible="false">
+         <children>
+            <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="media-player-wrapper">
+               <StackPane.margin>
+                  <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+               </StackPane.margin>
+               <children>
+                  <MediaView fx:id="mediaView" fitHeight="800.0" fitWidth="800.0" />
+               </children>
+            </StackPane>
+         </children>
+      </StackPane>
    </children>
 </StackPane>

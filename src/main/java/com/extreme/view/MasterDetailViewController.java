@@ -2,6 +2,7 @@ package com.extreme.view;
 
 import com.extreme.Util;
 import com.extreme.data.Movie;
+import com.extreme.ui.AnimatedIcon;
 import com.extreme.ui.MovieListCell;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.animation.FadeTransition;
@@ -23,6 +24,9 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -32,6 +36,8 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MasterDetailViewController implements Initializable {
+
+    private AnimatedIcon mediaStateIcon;
 
     private final MasterDetailViewModel model;
 
@@ -72,6 +78,12 @@ public class MasterDetailViewController implements Initializable {
 
     @FXML
     private FontAwesomeIconView closeAppIconView;
+
+    @FXML
+    private StackPane mediaPane;
+
+    @FXML
+    private MediaView mediaView;
 
     private TranslateTransition movieListTransition;
 
@@ -122,6 +134,42 @@ public class MasterDetailViewController implements Initializable {
 
         updateDetailArea();
 
+
+        watchTrailerButton.setOnAction(e -> playTrailer());
+        mediaView.fitWidthProperty().bind(rootPane.widthProperty().subtract(64.0));
+
+        mediaStateIcon = new AnimatedIcon();
+        mediaStateIcon.setScaleX(4.0);
+        mediaStateIcon.setScaleY(4.0);
+        mediaStateIcon.setMouseTransparent(true);
+        mediaStateIcon.toPause();
+        mediaPane.getChildren().add(mediaStateIcon);
+
+        //TODO: Animation
+        mediaView.setOnMouseEntered(e -> mediaStateIcon.setVisible(true));
+        mediaView.setOnMouseExited(e -> mediaStateIcon.setVisible(false));
+    }
+
+    private void playTrailer() {
+        final Media media = model.getSelectedMovie().loadTrailer();
+        final MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setOnEndOfMedia(() -> {
+            mediaPane.setVisible(false);
+            mediaPlayer.stop();
+            mediaPlayer.dispose();
+        });
+        mediaView.setOnMouseClicked(e -> {
+            if(MediaPlayer.Status.PLAYING.equals(mediaPlayer.getStatus())) {
+                mediaPlayer.pause();
+                mediaStateIcon.toPlay();
+            } else {
+                mediaPlayer.play();
+                mediaStateIcon.toPause();
+            }
+        });
+        mediaView.setMediaPlayer(mediaPlayer);
+        mediaPane.setVisible(true);
+        mediaPlayer.play();
     }
 
     private void addFeatureSupport() {

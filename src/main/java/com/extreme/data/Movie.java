@@ -9,6 +9,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.image.Image;
+import javafx.scene.media.Media;
 
 import javax.xml.bind.annotation.XmlType;
 import java.util.Optional;
@@ -190,6 +191,11 @@ public class Movie {
     public final Image createPosterImage() {
         return new Image(Database.class.getResource(getPosterFileName()).toExternalForm());
     }
+
+    public final Media loadTrailer() {
+        return new Media(Database.class.getResource(getTrailer()).toExternalForm());
+    }
+
 
     public final Binding<Image> createPosterImageBinding() {
         return Bindings.createObjectBinding(() -> {
