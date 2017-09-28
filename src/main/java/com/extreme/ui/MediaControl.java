@@ -37,7 +37,6 @@ import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
 import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.geometry.Insets;
@@ -50,6 +49,7 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 public class MediaControl extends HBox {
@@ -70,7 +70,14 @@ public class MediaControl extends HBox {
         setAlignment(Pos.CENTER);
         setPadding(new Insets(5, 10, 5, 10));
 
-        Button playButton = FontAwesomeIconFactory.get().createIconButton(FontAwesomeIcon.PLAY);
+        Text playIcon = FontAwesomeIconFactory.get().createIcon(FontAwesomeIcon.PLAY);
+        playIcon.setId("play");
+
+        Text pauseIcon = FontAwesomeIconFactory.get().createIcon(FontAwesomeIcon.PAUSE);
+        pauseIcon.setId("pause");
+
+        Button playButton = new Button();
+        playButton.setGraphic(playIcon);
 
         playButton.setOnAction(e -> {
             MediaPlayer mp = getMediaPlayer();
@@ -116,12 +123,12 @@ public class MediaControl extends HBox {
                         mp.pause();
                         stopRequested = false;
                     } else {
-                        playButton.setGraphic(FontAwesomeIconFactory.get().createIcon(FontAwesomeIcon.PAUSE));
+                        playButton.setGraphic(pauseIcon);
                     }
                 });
 
                 mp.setOnPaused(() -> {
-                    playButton.setGraphic(FontAwesomeIconFactory.get().createIcon(FontAwesomeIcon.PLAY));
+                    playButton.setGraphic(playIcon);
                 });
 
                 mp.setOnReady(() -> {
@@ -132,7 +139,7 @@ public class MediaControl extends HBox {
                 mp.setCycleCount(repeat ? MediaPlayer.INDEFINITE : 1);
                 mp.setOnEndOfMedia(() -> {
                     if (!repeat) {
-                        playButton.setGraphic(FontAwesomeIconFactory.get().createIcon(FontAwesomeIcon.PLAY));
+                        playButton.setGraphic(playIcon);
                         stopRequested = true;
                         atEndOfMedia = true;
                     }
@@ -155,12 +162,10 @@ public class MediaControl extends HBox {
         HBox.setHgrow(timeSlider, Priority.ALWAYS);
         timeSlider.setMinWidth(50);
         timeSlider.setMaxWidth(Double.MAX_VALUE);
-        timeSlider.valueProperty().addListener(new InvalidationListener() {
-            public void invalidated(Observable ov) {
-                if (timeSlider.isValueChanging()) {
-                    // multiply duration by percentage calculated by slider position
-                    getMediaPlayer().seek(duration.multiply(timeSlider.getValue() / 100.0));
-                }
+        timeSlider.valueProperty().addListener(ov -> {
+            if (timeSlider.isValueChanging()) {
+                // multiply duration by percentage calculated by slider position
+                getMediaPlayer().seek(duration.multiply(timeSlider.getValue() / 100.0));
             }
         });
         getChildren().add(timeSlider);
@@ -180,11 +185,9 @@ public class MediaControl extends HBox {
         volumeSlider.setPrefWidth(70);
         volumeSlider.setMaxWidth(Region.USE_PREF_SIZE);
         volumeSlider.setMinWidth(30);
-        volumeSlider.valueProperty().addListener(new InvalidationListener() {
-            public void invalidated(Observable ov) {
-                if (volumeSlider.isValueChanging()) {
-                    getMediaPlayer().setVolume(volumeSlider.getValue() / 100.0);
-                }
+        volumeSlider.valueProperty().addListener(ov -> {
+            if (volumeSlider.isValueChanging()) {
+                getMediaPlayer().setVolume(volumeSlider.getValue() / 100.0);
             }
         });
         getChildren().add(volumeSlider);

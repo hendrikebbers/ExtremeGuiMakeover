@@ -23,3 +23,11 @@
 .media-controls .label {
     -fx-text-fill: gray;
 }
+
+#play {
+    -fx-fill: green;
+}
+
+#pause {
+    -fx-fill: orangered;
+}

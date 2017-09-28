@@ -22,14 +22,28 @@ public class SlidesViewer {
 
     public SlidesViewer() {
         pagination = new Pagination();
+
+        pagination.setOnMouseClicked(evt -> nextSlide());
+        pagination.setOnSwipeLeft(evt -> previousSlide());
+        pagination.setOnSwipeRight(evt -> nextSlide());
+        pagination.setOnScrollStarted(evt -> {
+
+            if (evt.getTotalDeltaX() > 0) {
+                nextSlide();
+            } else {
+                previousSlide();
+            }
+
+        });
+
         pagination.setOnKeyPressed(evt -> {
             switch (evt.getCode()) {
                 case LEFT:
-                    pagination.setCurrentPageIndex(Math.max(0, pagination.getCurrentPageIndex() - 1));
+                    previousSlide();
                     break;
                 case RIGHT:
                 case SPACE:
-                    pagination.setCurrentPageIndex(Math.min(pagination.getPageCount() - 1, pagination.getCurrentPageIndex() + 1));
+                    nextSlide();
                     break;
             }
         });
@@ -54,6 +68,14 @@ public class SlidesViewer {
         stage.setHeight(540);
 
         slidesEntry.addListener(it -> updateViewer());
+    }
+
+    private void nextSlide() {
+        pagination.setCurrentPageIndex(Math.min(pagination.getPageCount() - 1, pagination.getCurrentPageIndex() + 1));
+    }
+
+    private void previousSlide() {
+        pagination.setCurrentPageIndex(Math.max(0, pagination.getCurrentPageIndex() - 1));
     }
 
     public void showSlides() {
