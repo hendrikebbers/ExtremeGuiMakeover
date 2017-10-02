@@ -85,12 +85,10 @@
                 <version>8.1.5</version>
                 <configuration>
                     <appName>Extreme GUI Makeover</appName>
-                    <mainClass>com.extreme.MovieApp
-                    </mainClass>
+                    <mainClass>com.extreme.MovieApp</mainClass>
                     <nativeReleaseVersion>1.0.1.125</nativeReleaseVersion>
                     <vendor>DLSC-GUIGarage</vendor>
                     <certCountry>CA</certCountry>
-                    <!-- additionalAppResources>./db</additionalAppResources -->
                 </configuration>
                 <executions>
                     <execution>

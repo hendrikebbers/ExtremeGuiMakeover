@@ -167,7 +167,7 @@ public class MovieApp extends Application {
         featuresDialog.addFeature(new Feature("Image Background", "demo2-image-background",features.movieBackgroundProperty()));
         featuresDialog.addFeature(new Feature("List Animation", "demo2-list-animation",features.listAnimationProperty()));
         featuresDialog.addFeature(new Feature("List Shadow", "demo2-list-shadow",features.listShadowProperty()));
-        featuresDialog.addFeature(new Feature("List Cache", "demo2-list-cache",features.listCacheProperty()));
+        // featuresDialog.addFeature(new Feature("List Cache", "demo2-list-cache",features.listCacheProperty()));
         featuresDialog.addFeature(new Feature("Poster Transform", "demo2-poster-transform",features.posterTransformProperty()));
         featuresDialog.addFeature(new Feature("Custom Window UI", "demo2-custom-window-ui",features.customWindowUIProperty()));
         featuresDialog.addFeature(new Feature("Custom Window Clip", "demo2-custom-window-clip", features.customWindowClipProperty()));

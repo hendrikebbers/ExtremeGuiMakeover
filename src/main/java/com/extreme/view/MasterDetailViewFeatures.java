@@ -13,7 +13,7 @@ public class MasterDetailViewFeatures {
 
     private final BooleanProperty listShadow = new SimpleBooleanProperty(false);
 
-    private final BooleanProperty listCache = new SimpleBooleanProperty(false);
+    private final BooleanProperty listCache = new SimpleBooleanProperty(true);
 
     private final BooleanProperty customWindowUI = new SimpleBooleanProperty(false);
 

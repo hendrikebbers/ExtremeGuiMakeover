@@ -23,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -169,6 +170,14 @@ public class MasterDetailViewController implements Initializable {
         //TODO: Animation
         mediaView.setOnMouseEntered(e -> mediaControl.setVisible(true));
         mediaView.setOnMouseExited(e -> mediaControl.setVisible(false));
+
+        movieList.getSelectionModel().select(0);
+
+        rootPane.setOnKeyPressed(evt -> {
+            if (evt.getCode().equals(KeyCode.ESCAPE)) {
+                stopTrailer();
+            }
+        });
     }
 
     private void playTrailer() {
@@ -191,6 +200,14 @@ public class MasterDetailViewController implements Initializable {
         mediaView.setMediaPlayer(mediaPlayer);
         mediaPane.setVisible(true);
         mediaPlayer.play();
+    }
+
+    private void stopTrailer() {
+        MediaPlayer mediaPlayer = mediaView.getMediaPlayer();
+        if (mediaPlayer != null) {
+            mediaPlayer.pause();
+            mediaPane.setVisible(false);
+        }
     }
 
     private void addFeatureSupport() {
