@@ -36,7 +36,7 @@ public class SlidesViewer {
 
         });
 
-        pagination.setOnKeyPressed(evt -> {
+        pagination.setOnKeyTyped(evt -> {
             switch (evt.getCode()) {
                 case LEFT:
                     previousSlide();
@@ -50,7 +50,7 @@ public class SlidesViewer {
 
         stackPane = new StackPane();
 
-        titleImageView = new ImageView(SlidesViewer.class.getResource("/titleBW.png").toExternalForm());
+        titleImageView = new ImageView(SlidesViewer.class.getResource("/title.png").toExternalForm());
         titleImageView.fitWidthProperty().bind(stackPane.widthProperty());
         titleImageView.fitHeightProperty().bind(stackPane.heightProperty());
         titleImageView.setPreserveRatio(true);

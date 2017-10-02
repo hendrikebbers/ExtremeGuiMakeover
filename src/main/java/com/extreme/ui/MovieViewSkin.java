@@ -310,13 +310,19 @@ public class MovieViewSkin extends SkinBase<MovieView> {
             }
         });
 
-        Callback<ListView<Movie>, ListCell<Movie>> defaultCellFactory = listView.getCellFactory();
-
         getSkinnable().useListViewCellFactoryProperty().addListener(it -> {
-            if (getSkinnable().isUseListView()) {
+            if (getSkinnable().isUseListViewCellFactory()) {
                 listView.setCellFactory(view -> new MovieCell(getSkinnable()));
             } else {
-                listView.setCellFactory(defaultCellFactory);
+                listView.setCellFactory(view -> new ListCell<Movie>() {
+                    @Override
+                    protected void updateItem(Movie item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (item != null) {
+                            setText(item.toString());
+                        }
+                    }
+                });
             }
         });
 

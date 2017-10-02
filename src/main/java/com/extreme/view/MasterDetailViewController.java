@@ -284,13 +284,11 @@ public class MasterDetailViewController implements Initializable {
     public static Dimension2D shouldFitIn(double originalWidth, double originalHeight, double toFitWidth, double toFitHeight) {
         double fitRatio = toFitWidth / toFitHeight;
         double originalRatio = originalWidth / originalHeight;
-
         if (fitRatio > originalRatio) {
-            //Die Weite muss zur Weite der Komponente passen. Oben & Unten abschneiden
             double widthFactor = toFitWidth / originalWidth;
             return new Dimension2D(toFitWidth, originalHeight * widthFactor);
         } else {
-            //Die Höhe muss zur Höhe der Komponente passen. Links & Rechts abschneiden
+
             double heightFactor = toFitHeight / originalHeight;
             return new Dimension2D(originalWidth * heightFactor, toFitHeight);
         }

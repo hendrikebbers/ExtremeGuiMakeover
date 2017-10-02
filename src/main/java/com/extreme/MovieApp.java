@@ -56,7 +56,6 @@ public class MovieApp extends Application {
         scene.getStylesheets().add(MovieApp.class.getResource("/fonts.css").toExternalForm());
 
         primaryStage.setResizable(false);
-        primaryStage.initStyle(StageStyle.UTILITY);
         primaryStage.setTitle("Extreme GUI Makeover");
         primaryStage.setScene(scene);
         primaryStage.sizeToScene();
@@ -164,7 +163,7 @@ public class MovieApp extends Application {
         stage.show();
 
         final FeaturesDialog featuresDialog = new FeaturesDialog(stage);
-        featuresDialog.addFeature(new Feature("CSS", "demo2-css", features.useCssProperty()));
+        featuresDialog.addFeature(new Feature("Layout & Style", "demo2-css", features.useCssProperty()));
         featuresDialog.addFeature(new Feature("Image Background", "demo2-image-background",features.movieBackgroundProperty()));
         featuresDialog.addFeature(new Feature("List Animation", "demo2-list-animation",features.listAnimationProperty()));
         featuresDialog.addFeature(new Feature("List Shadow", "demo2-list-shadow",features.listShadowProperty()));
