@@ -14,6 +14,8 @@ import javafx.scene.media.Media;
 import javax.xml.bind.annotation.XmlType;
 import java.util.Optional;
 
+import com.extreme.MovieApp;
+
 @XmlType
 public class Movie {
 
