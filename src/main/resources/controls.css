@@ -9,7 +9,7 @@
 .media-controls .button {
     -fx-background-color: transparent;
     -fx-text-fill: gray;
-    -fx-font-style: bold;
+    -fx-font-weight: bold;
 }
 
 .media-controls .slider .track {
