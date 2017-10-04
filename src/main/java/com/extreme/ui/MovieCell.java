@@ -81,8 +81,12 @@ public class MovieCell extends ListCell<Movie> {
         GridPane.setValignment(trailerLabel, VPos.TOP);
 
         trailerLabel.setOnMouseClicked(evt -> {
-            Movie movie = getItem();
-            movieView.setSelectedTrailer(MovieApp.class.getResource("/trailers/" + movie.getTrailer()).toExternalForm());
+            try {
+                Movie movie = getItem();
+                movieView.setSelectedTrailer(MovieApp.class.getResource("trailers/" + movie.getTrailer()).toExternalForm());
+            } catch (NullPointerException e) {
+                movieView.setSelectedTrailer(MovieApp.class.getResource("trailers/TrailerMissing.mp4").toExternalForm());
+            }
         });
 
         setGraphic(gridPane);
