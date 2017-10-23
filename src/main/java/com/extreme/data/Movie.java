@@ -14,6 +14,8 @@ import javafx.scene.media.Media;
 import javax.xml.bind.annotation.XmlType;
 import java.util.Optional;
 
+import com.extreme.MovieApp;
+
 @XmlType
 public class Movie {
 
@@ -193,9 +195,12 @@ public class Movie {
     }
 
     public final Media loadTrailer() {
-        return new Media(Database.class.getResource("/trailers/" + getTrailer()).toExternalForm());
+    	try {
+           return new Media(MovieApp.class.getResource("trailers/" + getTrailer()).toExternalForm());	
+        } catch (NullPointerException e) {
+           return new Media(MovieApp.class.getResource("trailers/TrailerMissing.mp4").toExternalForm());
+        }   
     }
-
 
     public final Binding<Image> createPosterImageBinding() {
         return Bindings.createObjectBinding(() -> {

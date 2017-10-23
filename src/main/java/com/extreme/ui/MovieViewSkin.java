@@ -462,7 +462,7 @@ public class MovieViewSkin extends SkinBase<MovieView> {
 
     private void showTrailer() {
         Movie movie = getSkinnable().getSelectedMovie();
-        final URL resource = MovieApp.class.getResource("/trailers/" + movie.getTrailer());
+        final URL resource = MovieApp.class.getResource("trailers/" + movie.getTrailer());
         if (resource != null) {
             String trailer = resource.toExternalForm();
             getSkinnable().setSelectedTrailer(trailer);
