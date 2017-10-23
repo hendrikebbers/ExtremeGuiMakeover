@@ -386,7 +386,14 @@ public class MovieViewSkin extends SkinBase<MovieView> {
             if (selectedTrailer != null) {
 
                 if (getSkinnable().isMediaViewTrailers()) {
-                    Media media = new Media(selectedTrailer);
+                    Media media = null;
+
+                    if (selectedTrailer.equals("")) {
+                        media = new Media(MovieViewSkin.class.getResource("/TrailerMissing.mp4").toExternalForm());
+                    } else {
+                        media = new Media(selectedTrailer);
+                    }
+
                     MediaPlayer mediaPlayer = new MediaPlayer(media);
                     mediaPlayer.setAutoPlay(true);
                     mediaPlayer.setOnStopped(() -> mediaPlayer.dispose());

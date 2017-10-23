@@ -196,8 +196,8 @@ public class Movie {
     public final Media loadTrailer() {
     	try {
            return new Media(MovieApp.class.getResource("/trailers/" + getTrailer()).toExternalForm());
-        } catch (NullPointerException e) {
-           return new Media(MovieApp.class.getResource("/trailers/TrailerMissing.mp4").toExternalForm());
+        } catch (Exception e) {
+           return new Media(MovieApp.class.getResource("/TrailerMissing.mp4").toExternalForm());
         }   
     }
 
