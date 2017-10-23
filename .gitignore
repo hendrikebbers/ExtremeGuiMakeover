@@ -1,4 +1,4 @@
 makeover.iml
 .idea
 target
-src/main/resources/trailers
+src/main/resources/trailers/*.mp4

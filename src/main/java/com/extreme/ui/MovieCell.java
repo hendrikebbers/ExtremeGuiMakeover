@@ -83,9 +83,9 @@ public class MovieCell extends ListCell<Movie> {
         trailerLabel.setOnMouseClicked(evt -> {
             try {
                 Movie movie = getItem();
-                movieView.setSelectedTrailer(MovieApp.class.getResource("trailers/" + movie.getTrailer()).toExternalForm());
+                movieView.setSelectedTrailer(MovieApp.class.getResource("/trailers/" + movie.getTrailer()).toExternalForm());
             } catch (NullPointerException e) {
-                movieView.setSelectedTrailer(MovieApp.class.getResource("trailers/TrailerMissing.mp4").toExternalForm());
+                movieView.setSelectedTrailer(MovieApp.class.getResource("/trailers/TrailerMissing.mp4").toExternalForm());
             }
         });
 
