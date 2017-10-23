@@ -22,7 +22,6 @@ import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
 import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.SkinBase;
 import javafx.scene.control.TableView;
@@ -47,7 +46,6 @@ import javafx.scene.media.MediaPlayer.Status;
 import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import javafx.util.Callback;
 import javafx.util.Duration;
 import org.controlsfx.control.Rating;
 import org.controlsfx.control.textfield.CustomTextField;
@@ -462,7 +460,7 @@ public class MovieViewSkin extends SkinBase<MovieView> {
 
     private void showTrailer() {
         Movie movie = getSkinnable().getSelectedMovie();
-        final URL resource = MovieApp.class.getResource("trailers/" + movie.getTrailer());
+        final URL resource = MovieApp.class.getResource("/trailers/" + movie.getTrailer());
         if (resource != null) {
             String trailer = resource.toExternalForm();
             getSkinnable().setSelectedTrailer(trailer);
